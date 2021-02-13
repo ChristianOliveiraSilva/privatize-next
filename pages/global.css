@@ -1,0 +1,13 @@
+.facebook-button{
+    width: 100%;
+    background-color: #3b5998;
+    color: white;
+    border: none;
+    text-align: left;
+    cursor: pointer;
+    height: 45px;
+}
+
+.facebook-button :last-child{  
+    margin-left: 15px;
+}
