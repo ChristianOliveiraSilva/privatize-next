@@ -60,10 +60,10 @@ function InfoBox (props) {
             descriptionContent.style.transform = `scale(${1 - scaleX})`
 
             setIsOpen(true)
-
             if (props.onOpen){
                 props.onOpen()
             }
+            
         } else {
             hoverText.style.left = '20px'
             infoHandler.style.transform = 'translateX(0)'
@@ -73,7 +73,6 @@ function InfoBox (props) {
             descriptionContent.style.transform = 'scaleX(1)'
 
             setIsOpen(false)
-
             if (props.onClose) {
                 props.onClose()
             }
