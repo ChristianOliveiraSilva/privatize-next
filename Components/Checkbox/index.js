@@ -1,12 +1,12 @@
 import React, { useState } from 'react'
 import Flex from '../../Global/Style'
-import CheckboxBase from './style'
+import {CheckboxBase, Input} from './style'
 import PropTypes from 'prop-types'
 
 function Checkbox (props) {
     const [checked, setChecked] = useState(false)
 
-    function handleChange () {
+    const handleChange = () => {
         const { addValue } = props
         if (addValue && !checked) {
             addValue(prev => [...prev, props.value])
@@ -27,17 +27,17 @@ function Checkbox (props) {
     }
 
     return (
-        <CheckboxBase>
-            <Flex alignItems="baseline">
-                <span id="text" onClick={() => handleChange()} >{props.text}</span>
-            </Flex>
+        <CheckboxBase margin={props.margin}>
+            <Input type="checkbox" onChange={handleChange} checked={checked}/>
+            <span id="text" onClick={handleChange}>{props.text}</span>
         </CheckboxBase>
     )
 }
 
 Checkbox.propTypes = {
     text: PropTypes.string,
-    addValue: PropTypes.func
+    addValue: PropTypes.func,
+    margin: PropTypes.string
 }
 
 export default Checkbox

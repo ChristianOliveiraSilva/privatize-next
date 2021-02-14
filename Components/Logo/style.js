@@ -3,7 +3,7 @@ import styled from 'styled-components'
 export const LogoBase = styled.span`
     white-space: nowrap;
     color: #76AE63;
-    font-size: ${props => props.fontSize}px;
+    font-size: ${props => props.fontSize};
     cursor: pointer;
     -webkit-touch-callout: none;
    -webkit-user-select: none;
@@ -13,14 +13,15 @@ export const LogoBase = styled.span`
    user-select: none;
 
     @media (max-width: 1000px){
-        font-size: 80px;
+        font-size: ${({wf1000}) => wf1000 };
     }
 
     @media (max-width: 600px){
-        font-size: 60px;
+        font-size: ${({wf600}) => wf600 };
     }
 
     @media (max-width: 400px){
-        font-size: 40px;
+        font-size: ${({wf400}) => wf400 };
+
     }
 `

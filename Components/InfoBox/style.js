@@ -19,9 +19,14 @@ export const InfoBoxContent = styled.div`
     transform-origin: top right;
     animation: ${rightLeft} 0.3s forwards;
     width: 400px;
-    height: 100%;
+    min-height: calc(100% - 80px);
     padding-left: 20px;
     border-left: solid 0.5px lightgray;
+
+    @media (max-width: 1000px){
+        width: 100%;
+    }
+
 `
 
 export const InfoBoxHandler = styled.div`

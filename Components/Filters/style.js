@@ -1,11 +1,15 @@
 import styled from 'styled-components'
 
-export const Content = styled.div`
+export const FiltersBase = styled.div`
     margin-top: 100px;
-
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    
     span{
-        font-size: 25px;
-        margin-left: 50px;
+        font-size: 18px;
         white-space: nowrap;
     }
 
@@ -90,4 +94,4 @@ export const MiddleFilters = styled.div`
     }
 `
 
-export default Content;
+export default FiltersBase;

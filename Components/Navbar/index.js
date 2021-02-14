@@ -1,6 +1,5 @@
 import React from 'react'
-import { Flex } from '../../Global/Style'
-import { Content } from './style'
+import { BaseNavbar } from './style'
 import NavLogin from '../../Components/NavLogin'
 import PropTypes from 'prop-types'
 import Logo from '../Logo'
@@ -20,22 +19,19 @@ function Navbar (props) {
     }
 
     return (
-        <Content>
-            <Flex
-                id="flex"
-                flexDirection="row"
-                alignItems="center"
-                justifyContent="space-between">
-                <Logo
-                    onClick={ backToHome }
-                    style={ logoStyle } />
-                <NavLogin
-                    user={ props.user }
-                    style={ navLoginStyle }
-                    router={ props.router }
-                />
-            </Flex>
-        </Content>
+        <BaseNavbar id='navbar'>
+            <Logo
+                fontSize='25px' 
+                wf1000='18px' 
+                wf400='15px'
+                onClick={ backToHome }
+                style={ logoStyle } />
+            <NavLogin
+                user={ props.user }
+                style={ navLoginStyle }
+                router={ props.router }
+            />
+        </BaseNavbar>
     )
 }
 

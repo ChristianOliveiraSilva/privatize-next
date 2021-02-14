@@ -167,9 +167,9 @@ function Comentary () {
                 {comments.map(function (comment, i) {
                     return (
                         <Comment style={{ marginTop: '20px' }} key={i}>
-                            <CommentContainer>
+                            <CommentContainer onClick={() => enableReply(i)}>
                                 {getTags(comment)}
-                                <CommentBody onClick={() => enableReply(i)}>
+                                <CommentBody>
                                     <Icon src={comment.image} />
                                     <Text>{comment.text}</Text>
                                 </CommentBody>

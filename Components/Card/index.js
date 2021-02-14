@@ -1,5 +1,5 @@
 import React from 'react'
-import Correios from '../../Assets/Correios.png'
+import Correios from '../../Assets/Correios.webp'
 import Proptypes from 'prop-types'
 import { Content, Logo, Footer } from './style'
 

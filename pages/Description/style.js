@@ -5,12 +5,17 @@ export const DescriptionBase = styled.div`
     max-width: 100%;
     height: 100%;
     position: relative;
+    overflow-x: hidden;
 `
 
 export const Content = styled.div`
     transform-origin: top left;
     transition: 0.3s;
     width: 100%;
+
+    @media (max-width: 1000px) {
+        opacity: ${({isContentVisible}) => isContentVisible ? '1' : '0'};
+    }
 `
 
 export const CompanieLogo = styled.div`
@@ -45,8 +50,8 @@ export const Buttons = styled.div`
     }
 
     @media (max-width: 600px) {
-      left: 50%;
-      transform: translateX(-50%);
+      left: 50%;Atenção
+%);
       width: 100%;
     }
 

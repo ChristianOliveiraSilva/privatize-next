@@ -10,7 +10,11 @@ function Logo (props) {
 }
 
 Logo.propTypes = {
-    onClick: PropTypes.func
+    onClick: PropTypes.func,
+    wf1000: PropTypes.string,
+    wf600: PropTypes.string,
+    wf400: PropTypes.string,
+    fontSize: PropTypes.string
 }
 
 export default Logo

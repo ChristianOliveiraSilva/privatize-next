@@ -15,6 +15,7 @@ import { useRouter } from 'next/router'
 function Description (props) {
 
     const router = useRouter()
+    const [isContentVisible, setIsContentVisible] = useState(true)
 
     const pieData = [
         {
@@ -86,8 +87,8 @@ function Description (props) {
     return (
         <DescriptionBase>
             <Navbar router={router} />
-            <InfoBox/>
-            <Content id="descriptionContent">
+            <InfoBox onOpen={() => setIsContentVisible(false)} onClose={() => setIsContentVisible(true)}/>
+            <Content isContentVisible={isContentVisible} id="descriptionContent">
                 <h1 style={{ marginLeft: '60px', marginTop: '400px', fontSize: '25px', position: 'absolute' }}>Aprovam : 574</h1>
                 <h1 style={{ marginLeft: '250px', marginTop: '400px', fontSize: '25px', position: 'absolute' }}>Reprovam : 21</h1>
                 <CompanieLogo>
@@ -125,8 +126,8 @@ function Description (props) {
                         </PieContainer>
                     </ComentContainer>
                 </div>
-                <Footer />
             </Content>
+            <Footer />
         </DescriptionBase>
     )
 }

@@ -58,7 +58,7 @@ export const Icon = styled.img`
 export const HoverUser = styled.div`
       position: absolute;
       top: 40px;
-      width: 100%;
+      width: auto;
       display: none;
       animation: ${apear} 0.8s;
       

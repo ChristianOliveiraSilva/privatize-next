@@ -1,9 +1,9 @@
 import styled from 'styled-components'
 
-export const Content = styled.button`
+export const BaseButton = styled.button`
     position: relative;
-    border-radius: ${props => props.rounded ? '5px' : '0px'};
-    background-color: ${props => props.backgroundColor ? props.backgroundColor : '#EEEEEE'};
+    border-radius: ${({rounded}) => rounded ? '5px' : '0px'};
+    background-color: ${({backgroundColor}) => backgroundColor ? backgroundColor : '#EEEEEE'};
     width: 150px;
     height: 40px;
     cursor: pointer;
@@ -18,13 +18,11 @@ export const Content = styled.button`
               user-select: none; 
 
     span{
-        color: ${props => props.fontColor ? props.fontColor : 'white'};
-        font-size: ${props => props.fontSize ? props.fontSize : '18px'};
-        width: 100%;
+        color: ${({fontColor}) => fontColor ? fontColor : 'white'};
+        font-size: ${({fontSize}) => fontSize ? fontSize : '18px'};
         position: absolute;
         left: 50%;
         top: 50%;
-        margin: auto;
         transform: translate(-50%, -50%);
     }
     

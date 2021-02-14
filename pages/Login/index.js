@@ -30,7 +30,7 @@ function Login (props) {
     return (
         <Center>
             <Form>
-                <Logo />
+                <Logo fontSize='40px' wf1000='30px' wf400='15px'/>
                 <Loading src={loading} visible={false}/>
                 <Flex flexDirection="column">
                     <Input placeholder="Nome de usuário" type="text" icon={nameIcon} />

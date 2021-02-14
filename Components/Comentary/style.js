@@ -14,10 +14,28 @@ export const Icon = styled.img`
     height: 40px;
     justify-self: center;
     align-self: center;
+
+    @media (max-width: 600px) {
+        display: none;
+    }
 `
 
 export const Text = styled.span`
     align-self: center;
+    font-size: 18px;
+
+
+    @media (max-width: 1000px) {
+        font-size: 16px;
+    }
+
+    @media (max-width: 600px) {
+        font-size: 14px;
+    }
+
+    @media (max-width: 400px) {
+        font-size: 12px;
+    }
 `
 
 export const TagContainer = styled.div`
@@ -47,11 +65,19 @@ export const Comment = styled.div`
 export const CommentBody = styled.div`
     display: grid;
     grid-template-columns: 100px auto;
+
+    @media (max-width: 600px) {
+        grid-template-columns: auto;
+    }
 `
 
 export const MainBody = styled.div`
     display: grid;
     grid-template-columns: 100px auto;
+
+    @media (max-width: 600px) {
+        grid-template-columns: auto;
+    }
 `
 
 export const Rep = styled.div`
@@ -90,6 +116,10 @@ export const Tags = styled.div`
     flex-direction: row;
     flex-wrap: wrap;
     margin-bottom: 10px;
+
+    div {
+        margin-left: 15px;
+    }
 `
 export const CommentContainer = styled.div`
     padding: 20px;

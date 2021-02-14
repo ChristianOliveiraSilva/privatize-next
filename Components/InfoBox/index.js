@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect, useCallback } from 'react'
 import PropTypes from 'prop-types'
 import { InfoBoxHandler, InfoBoxContent, InfoRow } from './style'
 
@@ -30,59 +30,78 @@ const data = [
 ]
 
 function InfoBox (props) {
-    const [isOpen, setIsOpen] = useState()
+    let [isOpen, setIsOpen] = useState(false)
+    let [windowSize, setWindowSize] = useState(false)
 
-    const openInfoBox = () => {
+    useEffect(() => {        
+        window.addEventListener('resize', handleResize, true)
+    }, [])
+
+    useEffect(() => {        
+        adjustHandlerByWidth()
+    }, [windowSize, isOpen])
+
+    function infoBoxHandler() {
         const infoContent = document.getElementById('infoContent')
         const infoHandler = document.getElementById('infoHandler')
         const hoverHandler = document.getElementById('hoverHandler')
         const hoverText = document.getElementById('hoverText')
         const descriptionContent = document.getElementById('descriptionContent')
 
-        hoverText.style.left = '65px'
+        if (!isOpen) {
+            hoverText.style.left = '65px'
+            infoHandler.style.transform = 'translateX(-400px)'
+            hoverHandler.style.transformOrigin = 'top left'
+            infoContent.style.display = 'block'
+            infoContent.style.transform = 'scaleX(1)'
 
-        infoHandler.style.transform = 'translateX(-400px)'
-        hoverHandler.style.transformOrigin = 'top left'
+            const scaleX = ((400 * 100) / window.innerWidth) / 100
 
-        infoContent.style.display = 'block'
-        infoContent.style.transform = 'scaleX(1)'
+            descriptionContent.style.transform = `scale(${1 - scaleX})`
 
-        const scaleX = ((400 * 100) / window.innerWidth) / 100
-
-        descriptionContent.style.transform = `scale(${1 - scaleX})`
-    }
-
-    const closeInfoBox = () => {
-        const infoContent = document.getElementById('infoContent')
-        const infoHandler = document.getElementById('infoHandler')
-        const hoverHandler = document.getElementById('hoverHandler')
-        const hoverText = document.getElementById('hoverText')
-        const descriptionContent = document.getElementById('descriptionContent')
-
-        hoverText.style.left = '20px'
-
-        infoHandler.style.transform = 'translateX(0)'
-        hoverHandler.style.transformOrigin = 'top right'
-
-        infoContent.style.transform = 'scaleX(0)'
-        infoContent.style.display = 'none'
-
-        descriptionContent.style.transform = 'scaleX(1)'
-    }
-
-    const infoBoxHandler = () => {
-        if (isOpen) {
-            closeInfoBox()
-            setIsOpen(false)
-        } else {
-            openInfoBox()
             setIsOpen(true)
+
+            if (props.onOpen){
+                props.onOpen()
+            }
+        } else {
+            hoverText.style.left = '20px'
+            infoHandler.style.transform = 'translateX(0)'
+            hoverHandler.style.transformOrigin = 'top right'
+            infoContent.style.transform = 'scaleX(0)'
+            infoContent.style.display = 'none'
+            descriptionContent.style.transform = 'scaleX(1)'
+
+            setIsOpen(false)
+
+            if (props.onClose) {
+                props.onClose()
+            }
         }
+        
+    }
+
+    function adjustHandlerByWidth() {
+        console.log("teste");
+
+        if (windowSize < 1000) {
+            if (isOpen) {
+                infoHandler.style.transform = 'translateX(0)'
+            }
+        } else {
+            if (isOpen) {
+                infoHandler.style.transform = 'translateX(-400px)'
+            }
+        } 
+    }
+
+    const handleResize = () => {
+        setWindowSize(window.innerWidth)
     }
 
     return (
         <>
-            <InfoBoxHandler onClick={ infoBoxHandler } id="infoHandler">
+            <InfoBoxHandler isOpen onClick={ () => infoBoxHandler()} id="infoHandler">
                 <div id="hoverHandler"></div>
                 <span id="hoverText">{ isOpen ? 'Fechar InfoBox' : 'Abrir InfoBox'}</span>
             </InfoBoxHandler>
@@ -114,7 +133,9 @@ function InfoBox (props) {
 }
 
 InfoBox.propTypes = {
-    setDescriptionContentWidth: PropTypes.func
+    setDescriptionContentWidth: PropTypes.func,
+    onOpen: PropTypes.func,
+    onClose: PropTypes.func
 }
 
 export default InfoBox

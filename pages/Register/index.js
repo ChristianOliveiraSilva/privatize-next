@@ -125,7 +125,7 @@ function Register (props) {
     return (
         <Center>
             <Form onSubmit={ createUser }>
-                <Logo/>
+                <Logo fontSize="40px"/>
                 <Flex flexDirection="column">
                     <Loading src={loadingSVG} visible={loading}/>
                     <Input onChange={e => handleChange(e)} id='login' state={inputStates.login} placeholder="Nome de usuário" type="text" icon={ nameIcon } />

@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import PropTypes from 'prop-types'
-import { Content } from './style'
+import { BaseButton } from './style'
 
 function Button (props) {
     let [selected, setSelected] = useState(false)
@@ -29,7 +29,7 @@ function Button (props) {
     const { style, rounded, hoverColor, hoverBackgroundColor, text, selectedColor, fontColor, fontSize, type } = props
 
     return (
-        <Content
+        <BaseButton
             onClick = { handleClick }
             style = { style }
             type = { type }
@@ -44,7 +44,7 @@ function Button (props) {
             <span>
                 {text}
             </span>
-        </Content>
+        </BaseButton>
     )
 }
 
