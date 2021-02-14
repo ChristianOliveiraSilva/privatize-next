@@ -50,7 +50,7 @@ function Input (props) {
     return (
         <Content {...contentProps} style={props.style}>
             <DivIcon/>
-            <Inp onChange={ e => handleChange(e) } iconExists={ iconExists() } {...InpProps} />
+            <Inp style={props.inputStyle} onChange={ e => handleChange(e) } iconExists={ iconExists() } {...InpProps} />
         </Content>
     )
 }
@@ -69,6 +69,8 @@ Input.propTypes = {
     backgroundColor: PropTypes.string,
     onChange: PropTypes.func,
     rounded: PropTypes.bool,
+    inputStyle: PropTypes.object,
+    ref: PropTypes.object,
     state: PropTypes.oneOf(sharedConstants.alertTypes)
 }
 

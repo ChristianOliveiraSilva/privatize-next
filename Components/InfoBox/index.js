@@ -34,7 +34,6 @@ function InfoBox (props) {
     let [windowSize, setWindowSize] = useState(false)
 
     useEffect(() => {        
-        window.addEventListener('resize', handleResize, true)
     }, [])
 
     useEffect(() => {        
@@ -48,35 +47,29 @@ function InfoBox (props) {
         const hoverText = document.getElementById('hoverText')
         const descriptionContent = document.getElementById('descriptionContent')
 
-        if (!isOpen) {
-            hoverText.style.left = '65px'
-            infoHandler.style.transform = 'translateX(-400px)'
-            hoverHandler.style.transformOrigin = 'top left'
-            infoContent.style.display = 'block'
-            infoContent.style.transform = 'scaleX(1)'
-
-            const scaleX = ((400 * 100) / window.innerWidth) / 100
-
-            descriptionContent.style.transform = `scale(${1 - scaleX})`
-
-            setIsOpen(true)
-            if (props.onOpen){
-                props.onOpen()
-            }
+        if (isOpen) {
             
-        } else {
-            hoverText.style.left = '20px'
-            infoHandler.style.transform = 'translateX(0)'
-            hoverHandler.style.transformOrigin = 'top right'
             infoContent.style.transform = 'scaleX(0)'
             infoContent.style.display = 'none'
             descriptionContent.style.transform = 'scaleX(1)'
 
-            setIsOpen(false)
             if (props.onClose) {
                 props.onClose()
             }
+        } else {
+            
+            infoContent.style.display = 'block'
+            infoContent.style.transform = 'scaleX(1)'
+    
+            const scaleX = ((400 * 100) / window.innerWidth) / 100
+    
+            descriptionContent.style.transform = `scale(${1 - scaleX})`
+
+            if (props.onOpen){
+                props.onOpen()
+            }
         }
+        setIsOpen(!isOpen)
         
     }
 
@@ -85,11 +78,15 @@ function InfoBox (props) {
 
         if (windowSize < 1000) {
             if (isOpen) {
+                hoverText.style.left = '20px'
+                hoverHandler.style.transformOrigin = 'top right'
                 infoHandler.style.transform = 'translateX(0)'
             }
         } else {
             if (isOpen) {
                 infoHandler.style.transform = 'translateX(-400px)'
+                hoverHandler.style.transformOrigin = 'top left'
+                hoverText.style.left = '65px'
             }
         } 
     }

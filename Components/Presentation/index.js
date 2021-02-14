@@ -6,7 +6,7 @@ import PropTypes from 'prop-types'
 
 function Presentation (props) {
     return (
-        <Container style={{ backgroundColor: '#E4FFE7' }}>
+        <Container style={{ backgroundColor: '#E2FAD9' }}>
             <Flex flexDirection="row" flexWrap="wrap" justifyContent="space-between" alignItems="center" >
                 <Content>
                     <Title>Teste vercel</Title>

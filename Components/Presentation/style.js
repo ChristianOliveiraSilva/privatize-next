@@ -20,7 +20,7 @@ export const Content = styled.div`
 export const Title = styled.p`
     font-size: 48px;
     line-height: 45px;
-    color: #333;
+    color: white;
     font-weight: 700;
 
     @media (max-width: 600px){

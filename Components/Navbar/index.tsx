@@ -1,10 +1,16 @@
 import React from 'react'
 import { BaseNavbar } from './style'
-import NavLogin from '../../Components/NavLogin'
-import PropTypes from 'prop-types'
+import NavLogin from '../NavLogin'
 import Logo from '../Logo'
 
-function Navbar (props) {
+interface NavBarProps {
+    router: {
+        push: Function
+    };
+    user: Object
+}
+
+const Navbar: React.FC<NavBarProps> = (props) => {
 
     const backToHome = () => {
         props.router.push('/')
@@ -34,10 +40,5 @@ function Navbar (props) {
         </BaseNavbar>
     )
 }
-
-Navbar.propTypes = {
-    router: PropTypes.object
-}
-
 
 export default Navbar;

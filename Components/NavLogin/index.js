@@ -43,7 +43,8 @@ function NavLogin (props) {
 
 NavLogin.propTypes = {
     router: PropTypes.object.isRequired,
-    user: PropTypes.object
+    user: PropTypes.object,
+    style: PropTypes.object
 }
 
 export default NavLogin

@@ -14,7 +14,8 @@ Logo.propTypes = {
     wf1000: PropTypes.string,
     wf600: PropTypes.string,
     wf400: PropTypes.string,
-    fontSize: PropTypes.string
+    fontSize: PropTypes.string,
+    style: PropTypes.object
 }
 
 export default Logo
