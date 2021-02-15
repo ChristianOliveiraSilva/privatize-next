@@ -48,18 +48,22 @@ function InfoBox (props) {
         const descriptionContent = document.getElementById('descriptionContent')
 
         if (isOpen) {
-            
+            infoHandler.style.transform = 'translateX(0)'
             infoContent.style.transform = 'scaleX(0)'
             infoContent.style.display = 'none'
             descriptionContent.style.transform = 'scaleX(1)'
+            hoverText.style.left = '20px'
+            hoverHandler.style.transformOrigin = 'top right'
 
             if (props.onClose) {
                 props.onClose()
             }
         } else {
-            
+            infoHandler.style.transform = 'translateX(-400px)'
             infoContent.style.display = 'block'
             infoContent.style.transform = 'scaleX(1)'
+            hoverHandler.style.transformOrigin = 'top left'
+            hoverText.style.left = '65px'
     
             const scaleX = ((400 * 100) / window.innerWidth) / 100
     
@@ -70,7 +74,6 @@ function InfoBox (props) {
             }
         }
         setIsOpen(!isOpen)
-        
     }
 
     function adjustHandlerByWidth() {
@@ -78,15 +81,11 @@ function InfoBox (props) {
 
         if (windowSize < 1000) {
             if (isOpen) {
-                hoverText.style.left = '20px'
-                hoverHandler.style.transformOrigin = 'top right'
                 infoHandler.style.transform = 'translateX(0)'
             }
         } else {
             if (isOpen) {
                 infoHandler.style.transform = 'translateX(-400px)'
-                hoverHandler.style.transformOrigin = 'top left'
-                hoverText.style.left = '65px'
             }
         } 
     }
