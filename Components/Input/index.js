@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useRef, useEffect} from 'react'
 import { Inp, Content, Icon } from './style'
 import { isEmpty } from '../../Helpers'
 import PropTypes from 'prop-types'
@@ -7,6 +7,11 @@ import sharedConstants from '../../Helpers/Shared/sharedConstants'
 function Input (props) {
 
     const { onChange } = props
+    const input = useRef();
+
+    useEffect(() => {
+        input.current.focus();
+    }, [input])
 
     const contentProps = {
         width: props.width,
@@ -50,7 +55,7 @@ function Input (props) {
     return (
         <Content {...contentProps} style={props.style}>
             <DivIcon/>
-            <Inp style={props.inputStyle} onChange={ e => handleChange(e) } iconExists={ iconExists() } {...InpProps} />
+            <Inp style={props.inputStyle} ref={input} onChange={ e => handleChange(e) } iconExists={ iconExists() } {...InpProps} />
         </Content>
     )
 }

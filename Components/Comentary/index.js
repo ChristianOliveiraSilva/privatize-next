@@ -1,6 +1,5 @@
 import React, { useState, useRef } from 'react'
 import { Icon, Content, Text, CommentBody, MainBody, Coments, Comment, DateInformation, Replys, Rep, Options, TextArea, Tags, CommentContainer, TagContainer } from './style'
-import Flex from '../../Global/Style'
 import Button from '../Button'
 import ReplyComponent from './Reply'
 import ProfileImage from '../../Assets/User.svg'

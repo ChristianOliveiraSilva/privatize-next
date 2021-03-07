@@ -1,8 +1,9 @@
 import React, { useState } from 'react'
 import Input from '../Input'
 import { BaseEditableText, Icon } from './style'
-import ConfirmIcon from '../../Assets/Confirm.svg'
-import EditIcon from '../../Assets/Edit.svg'
+
+const ConfirmIcon = require('../../Assets/Confirm.svg') as string
+const EditIcon = require('../../Assets/Edit.svg') as string
 
 interface EditableTextProps {
     textstyle?: object,

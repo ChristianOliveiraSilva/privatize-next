@@ -1,9 +1,14 @@
 import React from 'react'
-import Correios from '../../Assets/Correios.webp'
-import Proptypes from 'prop-types'
 import { Content, Logo, Footer } from './style'
 
-function Card (props) {
+const Correios = require ('../../Assets/Correios.webp') as string
+
+interface CardProps {
+    router: {push: Function}
+    animated?: boolean
+}
+
+const Card: React.FC<CardProps> = (props) => {
     return (
         <Content {...props} onClick={() => props.router.push('/Description')}>
             <Logo>
@@ -19,11 +24,6 @@ function Card (props) {
             </Footer>
         </Content>
     )
-}
-
-Proptypes.Card = {
-    history: Proptypes.func,
-    animated: Proptypes.bool
 }
 
 export default Card

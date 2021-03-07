@@ -1,4 +1,15 @@
-import styled from 'styled-components'
+import styled, {keyframes} from 'styled-components'
+
+const leftRight = keyframes`
+  0% {
+    transform: translateX(-300);
+    opacity: 0.8;
+  }
+  100% {
+    transform: translateX(0px);
+    opacity: 1;
+  }
+`
 
 export const DescriptionBase = styled.div`
     width: 100%;
@@ -10,8 +21,8 @@ export const DescriptionBase = styled.div`
 
 export const Content = styled.div`
     transform-origin: top left;
-    transition: 0.3s;
     width: 100%;
+    animation: ${leftRight} 1s;
 
     @media (max-width: 1000px) {
         opacity: ${({isContentVisible}) => isContentVisible ? '1' : '0'};
@@ -97,7 +108,11 @@ export const PieContainer = styled.div`
       height: 300px;
       margin-bottom: 100px;
     }
+`
 
+export const ContentContainer = styled.div`
+  display: flex;
+  flex-direction: row-reverse;
 `
 
 export default DescriptionBase;

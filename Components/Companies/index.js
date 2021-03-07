@@ -10,7 +10,7 @@ function Companies (props) {
         let animationDelay = 0
 
         for (let i = 0; i <= 10; i++) {
-            animationDelay = animationDelay + 0.15
+            animationDelay = animationDelay + 0.05
             companies = companies.concat([{
                 id: i,
                 animationDelay: animationDelay

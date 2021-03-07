@@ -8,7 +8,7 @@ import Footer from '../../Interfaces/Footer'
 import Pie from '../../Components/Pie'
 import InfoBox from '../../Components/InfoBox'
 
-import { DescriptionBase, CompanieLogo, Buttons, ComentContainer, PieContainer, Content } from './style'
+import { DescriptionBase, CompanieLogo, Buttons, ComentContainer, PieContainer, Content, ContentContainer } from './style'
 
 import { useRouter } from 'next/router'
 
@@ -87,46 +87,48 @@ function Description (props) {
     return (
         <DescriptionBase>
             <Navbar router={router} />
-            <InfoBox onOpen={() => setIsContentVisible(false)} onClose={() => setIsContentVisible(true)}/>
-            <Content isContentVisible={isContentVisible} id="descriptionContent">
-                <h1 style={{ marginLeft: '60px', marginTop: '400px', fontSize: '25px', position: 'absolute' }}>Aprovam : 574</h1>
-                <h1 style={{ marginLeft: '250px', marginTop: '400px', fontSize: '25px', position: 'absolute' }}>Reprovam : 21</h1>
-                <CompanieLogo>
-                    <img src='https://upload.wikimedia.org/wikipedia/commons/thumb/2/2b/Petrobras.svg/1280px-Petrobras.svg.png'/>
-                </CompanieLogo>
-                <div id='bar' style={{ width: '100%', height: '300px' }}>
-                    <Graphic type='bar' data={barData} index={index} keys={keys} />
-                </div>
-                <Buttons>
-                    <span>Você aprova a privatização:</span>
-                    <Button
-                        style={{ marginRight: '20px' }}
-                        width='200px'
-                        height='50px'
-                        text='Aprovar'
-                        hoverBackgroundColor='#CACACA'
-                        hoverColor='white'
-                        backgroundColor='#008542'
-                        rounded />
-                    <Button
-                        style={{ marginRight: '20px' }}
-                        width='200px'
-                        height='50px'
-                        text='Reprovar'
-                        hoverBackgroundColor='#CACACA'
-                        hoverColor='white'
-                        backgroundColor='red'
-                        rounded />
-                </Buttons>
-                <div style={{ paddingTop: '50px', paddingBottom: '50px' }}>
-                    <ComentContainer>
-                        <Comentary />
-                        <PieContainer>
-                            <Pie data={pieData} />
-                        </PieContainer>
-                    </ComentContainer>
-                </div>
-            </Content>
+                <ContentContainer>
+                    <InfoBox onOpen={() => setIsContentVisible(false)} onClose={() => setIsContentVisible(true)}/>
+                    <Content isContentVisible={isContentVisible} id="descriptionContent">
+                        <h1 stContentContaineryle={{ marginLeft: '60px', marginTop: '400px', fontSize: '25px', position: 'absolute' }}>Aprovam : 574</h1>
+                        <h1 style={{ marginLeft: '250px', marginTop: '400px', fontSize: '25px', position: 'absolute' }}>Reprovam : 21</h1>
+                        <CompanieLogo>
+                            <img src='https://upload.wikimedia.org/wikipedia/commons/thumb/2/2b/Petrobras.svg/1280px-Petrobras.svg.png'/>
+                        </CompanieLogo>
+                        <div id='bar' style={{ width: '100%', height: '300px' }}>
+                            <Graphic type='bar' data={barData} index={index} keys={keys} />
+                        </div>
+                        <Buttons>
+                            <span>Você aprova a privatização:</span>
+                            <Button
+                                style={{ marginRight: '20px' }}
+                                width='200px'
+                                height='50px'
+                                text='Aprovar'
+                                hoverBackgroundColor='#CACACA'
+                                hoverColor='white'
+                                backgroundColor='#008542'
+                                rounded />
+                            <Button
+                                style={{ marginRight: '20px' }}
+                                width='200px'
+                                height='50px'
+                                text='Reprovar'
+                                hoverBackgroundColor='#CACACA'
+                                hoverColor='white'
+                                backgroundColor='red'
+                                rounded />
+                        </Buttons>
+                        <div style={{ paddingTop: '50px', paddingBottom: '50px' }}>
+                            <ComentContainer>
+                                <Comentary />
+                                <PieContainer>
+                                    <Pie data={pieData} />
+                                </PieContainer>
+                            </ComentContainer>
+                        </div>
+                    </Content>
+                </ContentContainer>
             <Footer />
         </DescriptionBase>
     )

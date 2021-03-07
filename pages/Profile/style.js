@@ -8,11 +8,16 @@ export const BaseProfile = styled.div `
 export const ProfileContainer = styled.div `
     position: absolute;
     display: flex;
-    flex-direction: row;
-    align-items: center;
+    flex-direction: column;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+`
+
+export const InformationContainer = styled.div `
+    display: flex;
+    flex-direction: row;
+    align-items: center;
 `
 
 export const UserInformation = styled.div `

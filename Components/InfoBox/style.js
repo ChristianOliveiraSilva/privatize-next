@@ -1,38 +1,25 @@
-import styled, { keyframes } from 'styled-components'
-
-const rightLeft = keyframes`
-  0% {
-    transform: translateX(500px);
-    opacity: 0.8;
-  }
-  100% {
-    transform: translateX(0);
-    opacity: 1;
-  }
-`
+import styled, {keyframes} from 'styled-components'
 
 export const InfoBoxContent = styled.div`
-    position: absolute;
+    position: relative;
     transition: 0.3s;
-    display: none;
-    right: 0;
-    transform-origin: top right;
-    animation: ${rightLeft} 0.3s forwards;
-    width: 400px;
+    display: ${({ isOpen }) => isOpen ? 'block' : 'none'};
+    width: ${({ isOpen }) => isOpen ? '400px' : '0px'};
     min-height: calc(100% - 80px);
     padding-left: 20px;
     border-left: solid 0.5px lightgray;
 
-    @media (max-width: 1000px){
+    @media (max-width: 1000px) {
+        min-width: 100%;
         width: 100%;
     }
-
 `
 
 export const InfoBoxHandler = styled.div`
     position: absolute;
     z-index: 2;
-    right: 0;
+    right: ${({ isOpen }) => isOpen ? '425px' : '20px'};
+    transform-origin: ${({ isOpen }) => isOpen ? 'top right' : 'top left'};
     top: 100px;
     width: 200px;
     height: 40px;
@@ -69,6 +56,11 @@ export const InfoBoxHandler = styled.div`
         span {
             color: white;
         }
+    }
+
+    @media (max-width: 1000px) {
+        right: 20px;
+        position: fixed;
     }
 
 `
