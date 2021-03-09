@@ -13,6 +13,23 @@ export const InfoBoxContent = styled.div`
         min-width: 100%;
         width: 100%;
     }
+
+    @media (max-width: 600px) {
+        margin-top: 50px;
+    }
+`
+
+export const InfoBoxHandlerMobile = styled.div`
+    display: none;
+    position: absolute;
+    top: 100px;
+    z-index: 2;
+    right: ${({ isOpen }) => isOpen ? undefined : '50px'};
+    left: ${({ isOpen }) => isOpen ? '20px' : undefined};
+
+    @media (max-width: 600px) {
+        display: block;
+    }
 `
 
 export const InfoBoxHandler = styled.div`
@@ -61,6 +78,10 @@ export const InfoBoxHandler = styled.div`
     @media (max-width: 1000px) {
         right: 20px;
         position: fixed;
+    }
+
+    @media (max-width: 600px) {
+        display: none;
     }
 
 `

@@ -1,15 +1,5 @@
 import styled, { keyframes } from 'styled-components'
 
-const apear = keyframes`
-    from {
-        opacity : 0;
-    }
-    
-    to {
-        opacity : 1;
-    }
-`
-
 export const Content = styled.div`
     span{
         cursor: pointer;
@@ -57,10 +47,9 @@ export const Icon = styled.img`
 
 export const HoverUser = styled.div`
       position: absolute;
-      top: 40px;
-      width: auto;
-      display: none;
-      animation: ${apear} 0.8s;
+      background-color: gray;
+      width: 150px;
+      top: 60px;
       
    div{
         position: relative;

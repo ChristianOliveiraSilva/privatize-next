@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import PropTypes from 'prop-types'
-import { InfoBoxHandler, InfoBoxContent, InfoRow } from './style'
+import { InfoBoxHandler, InfoBoxHandlerMobile, InfoBoxContent, InfoRow } from './style'
 
 const data = [
     { Tipo: 'Empresa de capital aberto' },
@@ -33,7 +33,6 @@ function InfoBox (props) {
     let [isOpen, setIsOpen] = useState(false)
 
     function infoBoxHandler() {
-        const infoContent = document.getElementById('infoContent')
         const hoverHandler = document.getElementById('hoverHandler')
         const hoverText = document.getElementById('hoverText')
         const descriptionContent = document.getElementById('descriptionContent')
@@ -66,6 +65,9 @@ function InfoBox (props) {
                 <div id="hoverHandler"></div>
                 <span id="hoverText">{ isOpen ? 'Fechar InfoBox' : 'Abrir InfoBox'}</span>
             </InfoBoxHandler>
+            <InfoBoxHandlerMobile isOpen={isOpen} onClick={ () => infoBoxHandler()}>
+                <span>{ isOpen ? 'close' : 'open'}</span>
+            </InfoBoxHandlerMobile>
             <InfoBoxContent isOpen={isOpen} { ...props }>
                 <h1 style={{paddingTop: '10px', paddingBottom: '10px', fontWeight: 'bold' }}>Petróleo Brasileiro S.A.</h1>
                 {data.map((value, i) => {

@@ -26,13 +26,14 @@ function Button (props) {
         if (props.onSelect) props.onSelect()
     }
 
-    const { style, rounded, hoverColor, hoverBackgroundColor, text, selectedColor, fontColor, fontSize, type } = props
+    const { style, rounded, hoverColor, hoverBackgroundColor, text, selectedColor, fontColor, fontSize, type, alignText } = props
 
     return (
         <BaseButton
             onClick = { handleClick }
             style = { style }
             type = { type }
+            alignText = { alignText }
             selectedColor = { selectedColor }
             backgroundColor = { backgroundColor }
             hoverBackgroundColor = { hoverBackgroundColor }
@@ -59,6 +60,7 @@ Button.propTypes = {
     fontSize: PropTypes.string,
     style: PropTypes.object,
     selectable: PropTypes.bool,
+    alignText: PropTypes.string,
     onSelect: PropTypes.func,
     selectedColor: PropTypes.string,
     type: PropTypes.string

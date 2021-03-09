@@ -21,9 +21,9 @@ export const BaseButton = styled.button`
         color: ${({fontColor}) => fontColor ? fontColor : 'white'};
         font-size: ${({fontSize}) => fontSize ? fontSize : '18px'};
         position: absolute;
-        left: 50%;
+        left: ${({alignText}) => alignText === 'left' ? '10px' : '50%'};
         top: 50%;
-        transform: translate(-50%, -50%);
+        transform: ${({alignText}) => alignText === 'left' ? 'translateY(-50%)' : 'translate(-50%, -50%)'};
     }
     
     :hover {

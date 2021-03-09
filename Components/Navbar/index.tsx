@@ -1,6 +1,6 @@
 import React from 'react'
 import { BaseNavbar } from './style'
-import NavLogin from '../NavLogin'
+import NavLogin from './NavLogin'
 import Logo from '../Logo'
 
 interface NavBarProps {

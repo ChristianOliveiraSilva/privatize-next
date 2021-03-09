@@ -12,10 +12,12 @@ function Home () {
     return (
         <div>
             <Navbar router={router}/>
-            <Presentation router={router}/>
-            <Filters/>
-            <Companies router={router}/>
-            <Footer />
+            <div style={{paddingTop: '80px'}}>
+                <Presentation router={router}/>
+                <Filters/>
+                <Companies router={router}/>
+                <Footer />
+            </div>
         </div>
     )
 }

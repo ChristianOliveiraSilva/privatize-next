@@ -6,6 +6,14 @@ export const BaseProfile = styled.div `
 `
 
 export const ProfileContainer = styled.div `
+    display: grid;
+    grid-auto-flow: column;
+    grid-column-gap: 50px;
+    border-bottom: solid 0.5px lightgray;
+    padding-bottom: 20px;
+`
+
+export const CenterContainer = styled.div `
     position: absolute;
     display: flex;
     flex-direction: column;
@@ -13,6 +21,7 @@ export const ProfileContainer = styled.div `
     left: 50%;
     transform: translate(-50%, -50%);
 `
+
 
 export const InformationContainer = styled.div `
     display: flex;
@@ -30,4 +39,9 @@ export const Image = styled.img `
     width: 60px;
     height: 60px;
     margin-right: 50px;
+`
+
+export const OptionsContainer = styled.div `
+    display: flex;
+    flex-direction: column;
 `

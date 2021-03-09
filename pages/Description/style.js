@@ -111,6 +111,7 @@ export const PieContainer = styled.div`
 `
 
 export const ContentContainer = styled.div`
+  padding-top: 80px;
   display: flex;
   flex-direction: row-reverse;
 `

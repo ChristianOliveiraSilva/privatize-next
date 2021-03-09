@@ -90,7 +90,7 @@ function Description (props) {
                 <ContentContainer>
                     <InfoBox onOpen={() => setIsContentVisible(false)} onClose={() => setIsContentVisible(true)}/>
                     <Content isContentVisible={isContentVisible} id="descriptionContent">
-                        <h1 stContentContaineryle={{ marginLeft: '60px', marginTop: '400px', fontSize: '25px', position: 'absolute' }}>Aprovam : 574</h1>
+                        <h1 style={{ marginLeft: '60px', marginTop: '400px', fontSize: '25px', position: 'absolute' }}>Aprovam : 574</h1>
                         <h1 style={{ marginLeft: '250px', marginTop: '400px', fontSize: '25px', position: 'absolute' }}>Reprovam : 21</h1>
                         <CompanieLogo>
                             <img src='https://upload.wikimedia.org/wikipedia/commons/thumb/2/2b/Petrobras.svg/1280px-Petrobras.svg.png'/>

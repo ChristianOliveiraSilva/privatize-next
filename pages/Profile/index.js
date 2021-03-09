@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import { BaseProfile, ProfileContainer, UserInformation, InformationContainer, Image } from './style'
+import { BaseProfile, CenterContainer, UserInformation, InformationContainer, Image, OptionsContainer, ProfileContainer } from './style'
 
 import Navbar from '../../Components/Navbar'
 import Button from '../../Components/Button'
@@ -22,7 +22,7 @@ const textStyle = {
 
 const buttonStyle = {
     marginTop: '20px',
-    width: '250px'
+    width: '200px'
 }
 
 function Profile(props) {
@@ -40,22 +40,39 @@ function Profile(props) {
     return (
         <BaseProfile>
             <Navbar router={router}/>
-            <ProfileContainer>
-                <InformationContainer>
-                    <Image src={getUserImage()}/>
-                    <UserInformation>
-                        <EditableText placeholder='Login' inputStyle={inputStyle} textstyle={textStyle} text='login'/>
-                        <EditableText placeholder='Nome Completo' inputStyle={inputStyle} textstyle={textStyle} text='Nome Completo'/>
-                        <EditableText placeholder='Email' inputStyle={inputStyle} textstyle={textStyle} text='Teste@hotmail.com'/>
-                        <EditableText placeholder='Senha' inputStyle={inputStyle} textstyle={textStyle} text='********'/>
-                    </UserInformation>
-                </InformationContainer>
+            <CenterContainer>
+                <ProfileContainer>
+                    <OptionsContainer>
+                        <Button style={buttonStyle} 
+                            text='Deletar perfil' 
+                            alignText='left'
+                            backgroundColor='lightgray'
+                            hoverBackgroundColor='red'
+                        />
+                        <Button style={buttonStyle} 
+                            text='Logout' 
+                            alignText='left'
+                            backgroundColor='lightgray'
+                            hoverBackgroundColor='red'
+                        />
+                    </OptionsContainer>
+                    <InformationContainer>
+                        <Image src={getUserImage()}/>
+                        <UserInformation>
+                            <EditableText placeholder='Login' inputStyle={inputStyle} textstyle={textStyle} text='login'/>
+                            <EditableText placeholder='Nome Completo' inputStyle={inputStyle} textstyle={textStyle} text='Nome Completo'/>
+                            <EditableText placeholder='Email' inputStyle={inputStyle} textstyle={textStyle} text='Teste@hotmail.com'/>
+                            <EditableText placeholder='Senha' inputStyle={inputStyle} textstyle={textStyle} text='********'/>
+                        </UserInformation>
+                    </InformationContainer>
+                </ProfileContainer>
                 <Button style={buttonStyle} 
-                        text='Deletar perfil' 
-                        backgroundColor='lightgray'
-                        hoverBackgroundColor='red'
+                    text='Voltar' 
+                    backgroundColor='gray'
+                    hoverBackgroundColor='green'
+                    onClick={() => router.push("/")}
                 />
-            </ProfileContainer>
+            </CenterContainer>
         </BaseProfile>
     )
 }
