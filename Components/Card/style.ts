@@ -12,7 +12,12 @@ const open = keyframes`
   }
 `
 
-export const Content = styled.div`
+interface ContentProps {
+    animated?: boolean,
+    animationDelay?: string,
+} 
+
+export const Content = styled.div<ContentProps>`
     width: 350px;
     height: 250px;
     max-width: 80%;
