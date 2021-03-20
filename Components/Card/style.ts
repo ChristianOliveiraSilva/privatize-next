@@ -13,8 +13,8 @@ const open = keyframes`
 `
 
 interface ContentProps {
-    animated?: boolean,
-    animationDelay?: string,
+    animated?: Boolean,
+    animationDelay?: String
 } 
 
 export const Content = styled.div<ContentProps>`
@@ -33,11 +33,11 @@ export const Content = styled.div<ContentProps>`
     margin-top: 20px;
     border-bottom: solid 0.5px lightgray;
 
-    #subs{
+    .subs{
         font-size: 25px;
     }
 
-    #companie{
+    .companieName{
         transition: 0.1s;
         color: #76AE63;
         font-size: 25px;
@@ -46,12 +46,10 @@ export const Content = styled.div<ContentProps>`
     :hover{
         border: solid 1px #76AE63;
 
-        #companie{
+        .companieName{
             font-size: 28px;
         }
     }
-
-
 
 `
 

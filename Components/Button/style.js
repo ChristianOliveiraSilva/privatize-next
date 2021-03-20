@@ -18,7 +18,12 @@ export const BaseButton = styled.button`
               user-select: none; 
 
     span{
-        color: ${({fontColor}) => fontColor ? fontColor : 'white'};
+        color: ${({fontColor, selected, selectedFontColor}) => {
+            if (selected && selectedFontColor) {
+                return selectedFontColor
+            } 
+            return fontColor ? fontColor : 'white'
+        }};
         font-size: ${({fontSize}) => fontSize ? fontSize : '18px'};
         position: absolute;
         left: ${({alignText}) => alignText === 'left' ? '10px' : '50%'};

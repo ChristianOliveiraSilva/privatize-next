@@ -1,17 +1,17 @@
 export const filterCompanies = () => {
-    var input, filter, table, tr, td, i, txtValue
-    input = document.getElementById('myInput')
+    var input, filter, companies, companieName, grid, i, txtValue
+    input = document.getElementById('inputFilter')
     filter = input.value.toUpperCase()
-    table = document.getElementById('myTable')
-    tr = table.getElementsByTagName('tr')
-    for (i = 0; i < tr.length; i++) {
-        td = tr[i].getElementsByTagName('td')[0]
-        if (td) {
-            txtValue = td.textContent || td.innerText
+    grid = document.getElementById('companiesGrid')
+    companies = grid.children
+    for (i = 0; i < companies.length; i++) {
+        companieName = companies[i].getElementsByClassName('companieName')[0]
+        if (companieName) {
+            txtValue = companieName.textContent || companieName.innerText
             if (txtValue.toUpperCase().indexOf(filter) > -1) {
-                tr[i].style.display = ''
+                companies[i].style.display = ''
             } else {
-                tr[i].style.display = 'none'
+                companies[i].style.display = 'none'
             }
         }
     }

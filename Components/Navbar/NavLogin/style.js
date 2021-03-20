@@ -1,5 +1,15 @@
 import styled, { keyframes } from 'styled-components'
 
+const fadeIn = keyframes`
+  from {
+    transform: scaleY(0);
+  }
+
+  to {
+    transform: scaleY(1);
+  }
+`
+
 export const Content = styled.div`
     span{
         cursor: pointer;
@@ -48,8 +58,10 @@ export const Icon = styled.img`
 export const HoverUser = styled.div`
       position: absolute;
       background-color: gray;
+      transform-origin: top;
       width: 150px;
       top: 60px;
+      animation: ${fadeIn} 0.2s;
       
    div{
         position: relative;

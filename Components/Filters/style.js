@@ -1,33 +1,21 @@
 import styled from 'styled-components'
 
 export const FiltersBase = styled.div`
+    display: grid;
+    grid-template-columns: 650px auto;
+    grid-auto-flow: column;
+    grid-column-gap: 50px;
+    padding-left: 50px;
+    padding-right: 50px;
     margin-top: 100px;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    align-items: center;
-    flex-wrap: wrap;
-    
+
     span{
         font-size: 18px;
         white-space: nowrap;
     }
 
     #inputDiv{
-        margin-right:20px;
-        min-width: 50%;
-        width: 50%;
-    }
-
-    @media (max-width: 1350px) {
-
-        #inputDiv{
-            margin-left: 50px;
-            margin-top: 20px;
-            min-width: 700px;
-            width: 100%;
-            flex: 1;
-        }
+        width: 100%;
     }
 
     @media (max-width: 750px) {
@@ -37,16 +25,9 @@ export const FiltersBase = styled.div`
 
         #inputDiv{
             margin-right: 0px;
-            margin-left: 20px;
             min-width: 100%;
             width: 100%;
             flex: 1;
-        }
-    }
-
-    @media (max-width: 650px) {
-        #inputDiv{
-            margin-left: 0px;
         }
     }
 
@@ -88,7 +69,11 @@ export const FlexFilters = styled.div`
 
 `
 
-export const MiddleFilters = styled.div`
+export const SelectableButtons = styled.div`
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
     @media (max-width : 650px){
         display: none;
     }

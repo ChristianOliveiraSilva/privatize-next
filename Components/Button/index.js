@@ -26,7 +26,7 @@ function Button (props) {
         if (props.onSelect) props.onSelect()
     }
 
-    const { style, rounded, hoverColor, hoverBackgroundColor, text, selectedColor, fontColor, fontSize, type, alignText } = props
+    const { style, rounded, hoverColor, hoverBackgroundColor, text, selectedColor, fontColor, fontSize, type, alignText, selectedFontColor } = props
 
     return (
         <BaseButton
@@ -40,7 +40,9 @@ function Button (props) {
             hoverColor = { hoverColor }
             rounded = { rounded }
             fontColor = { fontColor }
+            selectedFontColor = { selectedFontColor }
             fontSize = { fontSize }
+            selected = { selected }
         >
             <span>
                 {text}

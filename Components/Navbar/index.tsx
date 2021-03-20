@@ -10,18 +10,18 @@ interface NavBarProps {
     user: Object
 }
 
+const navLoginStyle = {
+    marginRight: '20px'
+}
+
+const logoStyle = {
+    marginLeft: '20px'
+}
+
 const Navbar: React.FC<NavBarProps> = (props) => {
 
     const backToHome = () => {
         props.router.push('/')
-    }
-
-    const navLoginStyle = {
-        marginRight: '20px'
-    }
-
-    const logoStyle = {
-        marginLeft: '20px'
     }
 
     return (

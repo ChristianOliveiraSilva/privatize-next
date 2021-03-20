@@ -60,10 +60,17 @@ export const Buttons = styled.div`
       font-size: 20px;
     }
 
-    @media (max-width: 600px) {
-      left: 50%;Atenção
-%);
+    @media (max-width: 650px) {
+      left: 50%;
       width: 100%;
+      justify-content: center;
+
+      #question {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+      }
+
     }
 
 `

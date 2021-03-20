@@ -1,11 +1,12 @@
-import React, { useState } from 'react'
+import React, { StyleHTMLAttributes, useState } from 'react'
 import {CheckboxBase, Input} from './style'
 
 interface CheckboxProps {
     text: string,
     addValue: Function,
     margin: string,
-    value: string
+    value: string,
+    textStyle: StyleHTMLAttributes<Object>
 }
 
 const Checkbox: React.FC<CheckboxProps>  = (props) => {
@@ -34,7 +35,7 @@ const Checkbox: React.FC<CheckboxProps>  = (props) => {
     return (
         <CheckboxBase margin={props.margin}>
             <Input type="checkbox" onChange={handleChange} checked={checked}/>
-            <span id="text" onClick={handleChange}>{props.text}</span>
+            <span id="text" onClick={handleChange} style={props.textStyle}>{props.text}</span>
         </CheckboxBase>
     )
 }

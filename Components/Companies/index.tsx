@@ -1,12 +1,21 @@
-import React from 'react'
+import React, { Component, ReactElement } from 'react'
 import { Content, Grid } from './style'
 import Card from '../Card'
-import PropTypes from 'prop-types'
+import { NextRouter } from 'next/router'
 
-function Companies (props) {
+interface CompaniesProps {
+    router: NextRouter
+}
 
-    const Companies = () => {
-        let companies = []
+interface CompanieObject {
+    id: number,
+    animationDelay: number
+}
+
+const Companies: React.FC<CompaniesProps> = (props) => {
+
+    const Companies = () : ReactElement | null => {
+        let  companies : Array<CompanieObject> = []
         let animationDelay = 0
 
         for (let i = 0; i <= 10; i++) {
@@ -18,7 +27,7 @@ function Companies (props) {
         }
 
         if (!companies) {
-            return
+            return null
         }
 
         return (
@@ -32,15 +41,11 @@ function Companies (props) {
 
     return (
         <Content>
-            <Grid flexDirection="row" justifyContent="space-around" flexWrap="wrap">
+            <Grid id="companiesGrid" flexDirection="row" justifyContent="space-around" flexWrap="wrap">
                 <Companies />
             </Grid>
         </Content>
     )
-}
-
-Companies.propTypes = {
-    router: PropTypes.object
 }
 
 export default Companies

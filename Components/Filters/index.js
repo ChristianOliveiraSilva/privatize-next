@@ -1,5 +1,5 @@
 import React from 'react'
-import { FiltersBase, InpStyle, DropStyle, FlexFilters, MiddleFilters } from './style'
+import { FiltersBase, InpStyle, DropStyle, FlexFilters, SelectableButtons } from './style'
 import Flex from '../../Global/Style'
 import Dropdown from '../Dropdown'
 import Checkbox from '../Checkbox'
@@ -8,46 +8,57 @@ import Button from '../Button'
 
 import { filterCompanies } from './helpers/filterHelpers'
 
+const selectableButtonStyle = {
+    height: '40px',
+    width: '200px',
+    border: 'solid 0.5px lightgray'
+}
+
+const checkboxTextStyle = {
+    fontSize: '20px'
+}
+
 function Filters () {
-    const mostPopularButtonStyle = {
-        marginLeft: '50px',
-        height: '40px',
-        width: '150px'
-    }
-
-    const orderButtonStyle = {
-        marginLeft: '10px',
-        height: '40px',
-        width: '150px'
-    }
-
     return (
         <FiltersBase>
-            <Checkbox size="2" text="Empresas assinadas" />
-            <MiddleFilters>
-                <Flex flexDirection="row">
-                    <Button style={ mostPopularButtonStyle }
-                        text='Mais populares'
-                        fontSize='15px'
-                        selectable={ true }
-                        selectedColor= '#76AE63'
-                    />
-                    <Button style={ orderButtonStyle }
-                        text= 'Ordem Alfabética'
-                        fontSize='15px'
-                        selectedColor= '#76AE63'
-                        selectable= { true }
-                    />
-                </Flex>
-            </MiddleFilters>
+            <SelectableButtons>
+                <Button style={ selectableButtonStyle }
+                    text= 'Assinados'
+                    backgroundColor='white'
+                    fontSize='20px'
+                    fontColor='gray'
+                    selectedColor= '#76AE63'
+                    selectedFontColor= 'white'
+                    selectable= { true }
+                />
+                <Button style={ selectableButtonStyle }
+                    text='Mais populares'
+                    backgroundColor='white'
+                    fontSize='20px'
+                    fontColor='gray'
+                    selectedColor= '#76AE63'
+                    selectedFontColor= 'white'
+                    selectable={ true }
+                />
+                <Button style={ selectableButtonStyle }
+                    text= 'Ordem Alfabética'
+                    backgroundColor='white'
+                    fontSize='20px'
+                    fontColor='gray'
+                    selectedColor= '#76AE63'
+                    selectedFontColor= 'white'
+                    selectable= { true }
+                />
+            </SelectableButtons>
             <div id="inputDiv">
                 <FlexFilters>
                     <InpStyle>
                         <Input
+                            id="inputFilter"
                             width="100%"
                             backgroundColor="white"
                             onChange={filterCompanies}
-                            fontSize="15px"
+                            fontSize="12px"
                             placeholder="Empresa"
                         />
                     </InpStyle>

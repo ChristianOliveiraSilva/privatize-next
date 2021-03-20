@@ -99,12 +99,14 @@ function Description (props) {
                             <Graphic type='bar' data={barData} index={index} keys={keys} />
                         </div>
                         <Buttons>
-                            <span>Você aprova a privatização:</span>
+                            <div id='question'>
+                                <span>Deveria ser privatizado?</span>
+                            </div>
                             <Button
                                 style={{ marginRight: '20px' }}
                                 width='200px'
                                 height='50px'
-                                text='Aprovar'
+                                text='Sim'
                                 hoverBackgroundColor='#CACACA'
                                 hoverColor='white'
                                 backgroundColor='#008542'
@@ -113,7 +115,7 @@ function Description (props) {
                                 style={{ marginRight: '20px' }}
                                 width='200px'
                                 height='50px'
-                                text='Reprovar'
+                                text='Não'
                                 hoverBackgroundColor='#CACACA'
                                 hoverColor='white'
                                 backgroundColor='red'

@@ -112,13 +112,18 @@ export const Options = styled.div`
     flex-direction: row;
 `
 export const Tags = styled.div`
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
+    display: grid;
+    grid-auto-flow: column;
     margin-bottom: 10px;
 
     div {
         margin-left: 15px;
+    }
+
+    @media (max-width: 600px) {
+        grid-template-columns: auto auto;
+        justify-content: flex-start;
+        grid-auto-flow: unset;
     }
 `
 export const CommentContainer = styled.div`

@@ -16,10 +16,10 @@ const Card: React.FC<CardProps> = (props) => {
             </Logo>
             <Footer>
                 <div>
-                    <span id="subs" >3</span><span>Assinaturas</span>
+                    <span className="subs" >3</span><span>Assinaturas</span>
                 </div>
                 <div>
-                    <span id="companie" >Empresa</span>
+                    <span className="companieName" >Empresa</span>
                 </div>
             </Footer>
         </Content>

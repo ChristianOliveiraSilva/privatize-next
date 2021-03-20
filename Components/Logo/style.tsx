@@ -1,6 +1,12 @@
 import styled from 'styled-components'
 
-export const LogoBase = styled.span`
+interface LogoBaseProps {
+    wf1000?: Boolean,
+    wf600?: String,
+    wf400?: String
+} 
+
+export const LogoBase = styled.span<LogoBaseProps>`
     white-space: nowrap;
     color: #76AE63;
     font-size: ${props => props.fontSize};

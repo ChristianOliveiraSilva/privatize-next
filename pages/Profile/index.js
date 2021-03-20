@@ -5,7 +5,8 @@ import { BaseProfile, CenterContainer, UserInformation, InformationContainer, Im
 
 import Navbar from '../../Components/Navbar'
 import Button from '../../Components/Button'
-
+import Modal from '../../Components/Modal'
+import { sizes } from '../../Helpers/Shared/sharedConstants'
 import { useRouter } from 'next/dist/client/router'
 
 import EditableText from '../../Components/EditableText'
@@ -37,9 +38,20 @@ function Profile(props) {
         }
     } 
 
+    function getModal () {
+        const { MEDIUM } = sizes;
+
+        return (
+            <Modal size={ MEDIUM } shadow={true} isOpen={true}>
+                <h1>teste</h1>
+            </Modal>
+        )
+    }
+
     return (
         <BaseProfile>
             <Navbar router={router}/>
+            {getModal()}
             <CenterContainer>
                 <ProfileContainer>
                     <OptionsContainer>
@@ -53,7 +65,7 @@ function Profile(props) {
                             text='Logout' 
                             alignText='left'
                             backgroundColor='lightgray'
-                            hoverBackgroundColor='red'
+                            hoverBackgroundColor='orange'
                         />
                     </OptionsContainer>
                     <InformationContainer>
