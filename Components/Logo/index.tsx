@@ -11,7 +11,7 @@ interface LogoProps {
 }
 const Logo: React.FC<LogoProps>  = (props) => {
     return (
-        <LogoBase onClick={props.onClick} {...props} >Privatize já</LogoBase>
+        <LogoBase {...props}>Privatize já</LogoBase>
     )
 }
 

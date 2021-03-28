@@ -1,38 +1,31 @@
-import React, { StyleHTMLAttributes } from 'react'
-import { sizeMapper } from './helpers/modalMapper'
-import { sizes } from '../../Helpers/Shared/sharedConstants'
-import { ModalBase, Shadow } from './style'
+import React, { useContext } from 'react'
+import { Header } from './style'
+import ModalBase from './ModalBase'
+import { ModalInteface } from './helpers/interfaces'
+import ModalContext from '../Modal/helpers/modalContext'
 
-interface ModalProps {
-    onClick?: Function,
-    children: React.FC,
-    shadow?: boolean,
-    style?: StyleHTMLAttributes<Object>,
-    size?: string,
-    isOpen: boolean
-}
-const Modal: React.FC<ModalProps>  = (props) => {
-    
-    function getStyle() {
-        const { style, size } = props
-        let resultStyle = {};
+const Modal: React.FC<ModalInteface>  = (props) => {
 
-        if (style) {
-            Object.assign(resultStyle, style)
+    const setIsModalOpen = useContext(ModalContext);
+
+    function getHeader() {
+        if (props.headerText){
+            return (
+                <Header>
+                    <div onClick={() => setIsModalOpen(false)}>
+                        <span>x</span>
+                    </div>
+                    {props.headerText}
+                </Header>
+            )
         }
-
-        Object.assign(resultStyle, sizeMapper[size ? size : sizes.MEDIUM])
-
-        return resultStyle;
     }
-    
-    const { isOpen } = props;
 
     return (
-        <>
-            <Shadow isOpen={isOpen} shadow={props.shadow}/>
-            <ModalBase isOpen={isOpen} style={getStyle()} onClick={props.onClick}>{props.children}</ModalBase>
-        </>
+        <ModalBase {...props} >
+            { getHeader() }
+            { props.children }
+        </ModalBase>
     )
 }
 

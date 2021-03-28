@@ -27,7 +27,7 @@ function NavLogin (props) {
             return (
                 <HoverUser>
                     <div>
-                        <span onClick={() => router.push('/Profile')}>Perfil</span>
+                        <span onClick={() => props.setIsModalOpen(true)}>Perfil</span>
                     </div>
                     <div>
                         <span onClick={ logout }>Logout</span>
@@ -63,7 +63,8 @@ function NavLogin (props) {
 NavLogin.propTypes = {
     router: PropTypes.object.isRequired,
     user: PropTypes.object,
-    style: PropTypes.object
+    style: PropTypes.object,
+    setIsModalOpen: PropTypes.func
 }
 
 export default NavLogin
