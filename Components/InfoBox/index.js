@@ -63,7 +63,7 @@ function InfoBox (props) {
         <>
             <InfoBoxHandler isOpen={isOpen} onClick={ () => infoBoxHandler()} id="infoHandler">
                 <div id="hoverHandler"></div>
-                <span id="hoverText">{ isOpen ? 'Fechar InfoBox' : 'Abrir InfoBox'}</span>
+                <span id="hoverText">Informações</span>
             </InfoBoxHandler>
             <InfoBoxHandlerMobile isOpen={isOpen} onClick={ () => infoBoxHandler()}>
                 <span>{ isOpen ? 'close' : 'open'}</span>

@@ -26,11 +26,11 @@ export const Center = styled.div`
 
 export const Container = styled.div`
     position: relative;
-    padding-left: 100px;
-    padding-right: 100px;
+    padding-left: 5%;
+    padding-right: 5%;
     width: 100%;
 
-    @media (max-width: 600px){
+    @media (max-width: 1350px) {
       padding-left: 10%;
       padding-right: 10%;
     }

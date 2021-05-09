@@ -190,7 +190,7 @@ function Comentary () {
                 </Tags>
                 <MainBody>
                     <Icon src={ProfileImage} />
-                    <TextArea ref={ mainTextArea } width='90%' />
+                    <TextArea placeholder='Escreva o seu comentário..' ref={ mainTextArea } width='90%' />
                 </MainBody>
                 <Options>
                     <Button

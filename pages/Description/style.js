@@ -123,4 +123,44 @@ export const ContentContainer = styled.div`
   flex-direction: row-reverse;
 `
 
+export const ApprovalContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+`
+
+export const ApprovalIcons = styled.div`
+  display: grid;
+  grid-auto-flow: column;
+  grid-column-gap: 50px;
+  margin-left: 50px;
+  align-items: center;
+
+  span {
+    margin-right: 20px;
+    font-size: 20px;
+  }
+
+  img {
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+    transition: 0.3s;
+
+    :hover {
+      transform: scale(1.1);
+    }
+  }
+
+  img :nth-child(2) {
+    transform: rotate(180deg);
+    :hover {
+      transform: scale(1.1) rotate(180deg);
+    }
+  }
+
+`
+
+
 export default DescriptionBase;

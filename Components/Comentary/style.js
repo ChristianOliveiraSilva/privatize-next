@@ -2,6 +2,10 @@ import styled from 'styled-components'
 
 export const Content = styled.div`
     width: 50%;
+    padding: 10px;
+    border-right: solid 0.5px lightgray;
+    padding-right: 25px;
+
 
     @media (max-width : 1350px){
         min-width: 100%;
@@ -99,7 +103,7 @@ export const Replys = styled.div`
 `
 
 export const TextArea = styled.textarea`
-    border-radius: 20px;
+    border-radius: 5px;
     padding: 20px;
     width: 100%;
 

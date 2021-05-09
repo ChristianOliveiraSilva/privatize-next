@@ -13,7 +13,7 @@ function Reply (props) {
 
     return (
         <Rep>
-            <TextArea ref={reference} />
+            <TextArea placeholder='Escreva a sua resposta..' ref={reference} />
             <Options>
                 <Button onClick={ onReply } backgroundColor="#EEEEEE" hoverBackgroundColor="lightgray" rounded text='Enviar' />
                 <Button style={{ marginLeft: '5px' }} backgroundColor="#EEEEEE" hoverBackgroundColor="lightgray" onClick={ disableReply } rounded text='Cancelar' />

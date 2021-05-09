@@ -29,7 +29,7 @@ const modalStyle = {
 
 const Navbar: React.FC<NavBarProps> = (props) => {
 
-    const [isModalOpen, setIsModalOpen] = useState(true)
+    const [isModalOpen, setIsModalOpen] = useState(false)
 
     const backToHome = () => {
         props.router.push('/')

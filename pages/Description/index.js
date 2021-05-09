@@ -7,82 +7,21 @@ import Comentary from '../../Components/Comentary'
 import Footer from '../../Interfaces/Footer'
 import Pie from '../../Components/Pie'
 import InfoBox from '../../Components/InfoBox'
+import Like from '../../Assets/Like.svg'
+import Deslike from '../../Assets/Deslike.svg'
 
-import { DescriptionBase, CompanieLogo, Buttons, ComentContainer, PieContainer, Content, ContentContainer } from './style'
+import { DescriptionBase, CompanieLogo, Buttons, ComentContainer, PieContainer, Content, ContentContainer, ApprovalContainer, ApprovalIcons } from './style'
 
+import { pieData, barData } from './GraphicMockData'
 import { useRouter } from 'next/router'
 
 function Description (props) {
 
     const router = useRouter()
+
     const [isContentVisible, setIsContentVisible] = useState(true)
-
-    const pieData = [
-        {
-            id: 'Satisfeitos',
-            label: 'Satisfeitos',
-            value: 20
-        },
-        {
-            id: 'Não Satisfeitos',
-            label: 'Não Satisfeitos',
-            value: 80
-        }
-    ]
-
-    const barData = [
-        {
-            Mês: 'Mês 1',
-            Assinaturas: 1
-        },
-        {
-            Mês: 'Mês 2',
-            Assinaturas: 52
-        },
-        {
-            Mês: 'Mês 3',
-            Assinaturas: 120
-        },
-        {
-            Mês: 'Mês 4',
-            Assinaturas: 46
-        },
-        {
-            Mês: 'Mês 5',
-            Assinaturas: 85
-        },
-        {
-            Mês: 'Mês 6',
-            Assinaturas: 146
-        },
-        {
-            Mês: 'Mês 7',
-            Assinaturas: 1
-        },
-        {
-            Mês: 'Mês 8',
-            Assinaturas: 52
-        },
-        {
-            Mês: 'Mês 9',
-            Assinaturas: 120
-        },
-        {
-            Mês: 'Mês 10',
-            Assinaturas: 46
-        },
-        {
-            Mês: 'Mês 11',
-            Assinaturas: 85
-        },
-        {
-            Mês: 'Mês 12',
-            Assinaturas: 146
-        }
-    ]
-
-    const index = 'Mês'
-    const keys = ['Assinaturas']
+    const [approvalRating, setApprovalRating] = useState(0)
+    const [disapprovalRating, setDisapprovalRating] = useState(0)
 
     return (
         <DescriptionBase>
@@ -90,37 +29,46 @@ function Description (props) {
                 <ContentContainer>
                     <InfoBox onOpen={() => setIsContentVisible(false)} onClose={() => setIsContentVisible(true)}/>
                     <Content isContentVisible={isContentVisible} id="descriptionContent">
-                        <h1 style={{ marginLeft: '60px', marginTop: '400px', fontSize: '25px', position: 'absolute' }}>Aprovam : 574</h1>
-                        <h1 style={{ marginLeft: '250px', marginTop: '400px', fontSize: '25px', position: 'absolute' }}>Reprovam : 21</h1>
+                        <h1 style={{ marginLeft: '60px', marginTop: '400px', fontSize: '25px', position: 'absolute' }}>Aprovam: {approvalRating}</h1>
+                        <h1 style={{ marginLeft: '250px', marginTop: '400px', fontSize: '25px', position: 'absolute' }}>Reprovam : { disapprovalRating }</h1>
                         <CompanieLogo>
                             <img src='https://upload.wikimedia.org/wikipedia/commons/thumb/2/2b/Petrobras.svg/1280px-Petrobras.svg.png'/>
                         </CompanieLogo>
                         <div id='bar' style={{ width: '100%', height: '300px' }}>
-                            <Graphic type='bar' data={barData} index={index} keys={keys} />
+                            <Graphic type='bar' index={'Mês'} keys={[ 'Aprovam', 'Reprovam' ]} data={barData}  keys={['Assinaturas']} />
                         </div>
-                        <Buttons>
-                            <div id='question'>
-                                <span>Deveria ser privatizado?</span>
-                            </div>
-                            <Button
-                                style={{ marginRight: '20px' }}
-                                width='200px'
-                                height='50px'
-                                text='Sim'
-                                hoverBackgroundColor='#CACACA'
-                                hoverColor='white'
-                                backgroundColor='#008542'
-                                rounded />
-                            <Button
-                                style={{ marginRight: '20px' }}
-                                width='200px'
-                                height='50px'
-                                text='Não'
-                                hoverBackgroundColor='#CACACA'
-                                hoverColor='white'
-                                backgroundColor='red'
-                                rounded />
-                        </Buttons>
+                        <ApprovalContainer>
+                            <ApprovalIcons>
+                                <span>Curte a empresa?</span>
+                                <img src={Like}/>
+                                <img src={Deslike}/>
+                            </ApprovalIcons>
+                            <Buttons>
+                                <div id='question'>
+                                    <span>Deveria ser privatizado?</span>
+                                </div>
+                                <Button
+                                    style={{ marginRight: '20px' }}
+                                    onClick={() => setApprovalRating(prev => prev + 1)}
+                                    width='200px'
+                                    height='50px'
+                                    text='Sim'
+                                    hoverBackgroundColor='#CACACA'
+                                    hoverColor='white'
+                                    backgroundColor='#008542'
+                                    rounded />
+                                <Button
+                                    style={{ marginRight: '20px' }}
+                                    onClick={() => setDisapprovalRating(prev => prev + 1)}
+                                    width='200px'
+                                    height='50px'
+                                    text='Não'
+                                    hoverBackgroundColor='#CACACA'
+                                    hoverColor='white'
+                                    backgroundColor='red'
+                                    rounded />
+                            </Buttons>
+                        </ApprovalContainer>
                         <div style={{ paddingTop: '50px', paddingBottom: '50px' }}>
                             <ComentContainer>
                                 <Comentary />
