@@ -44,7 +44,22 @@ export const Text = styled.span`
 
 export const TagContainer = styled.div`
     justify-items: end;
-    margin-bottom: 15px;
+`
+
+export const CommentHeader = styled.div`
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    justify-items: middle;
+    margin-bottom: 20px;
+
+    #username {
+        color: #76AE63;
+    }
+
+    #data {
+        margin-left: 20px;
+    }
 `
 
 export const DateInformation = styled.div`
@@ -118,7 +133,6 @@ export const Options = styled.div`
 export const Tags = styled.div`
     display: grid;
     grid-auto-flow: column;
-    margin-bottom: 10px;
 
     div {
         margin-left: 15px;

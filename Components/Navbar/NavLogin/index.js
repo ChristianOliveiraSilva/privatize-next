@@ -52,7 +52,7 @@ function NavLogin (props) {
         }
     }
 
-    if (true) {
+    if (false) {
         return (
             <Content
                 onMouseEnter={ () => setIsHover(true) }

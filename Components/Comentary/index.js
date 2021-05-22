@@ -1,5 +1,5 @@
 import React, { useState, useRef } from 'react'
-import { Icon, Content, Text, CommentBody, MainBody, Coments, Comment, DateInformation, Replys, Rep, Options, TextArea, Tags, CommentContainer, TagContainer } from './style'
+import { Icon, Content, Text, CommentBody, MainBody, Coments, Comment, DateInformation, Replys, Rep, Options, TextArea, Tags, CommentContainer, TagContainer, CommentHeader } from './style'
 import Button from '../Button'
 import ReplyComponent from './Reply'
 import ProfileImage from '../../Assets/User.svg'
@@ -167,7 +167,13 @@ function Comentary () {
                     return (
                         <Comment style={{ marginTop: '20px' }} key={i}>
                             <CommentContainer onClick={() => enableReply(i)}>
-                                {getTags(comment)}
+                                <CommentHeader>
+                                    <div>
+                                        <span id='username'>Nome do usuário</span>
+                                        <span id='data'>05/01/2021</span>
+                                    </div>
+                                    {getTags(comment)}
+                                </CommentHeader>
                                 <CommentBody>
                                     <Icon src={comment.image} />
                                     <Text>{comment.text}</Text>
