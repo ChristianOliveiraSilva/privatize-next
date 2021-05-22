@@ -18,8 +18,23 @@ function NavLogin (props) {
         return () => window.clearTimeout(timeOut)
     }, [mouseStatus])
 
-    const logout = () => {
+    const onClickLogin = () => {
+        setIsHover(false)
+        router.push('/Login')
+    }
 
+    const onClickRegister = () => {
+        setIsHover(false)
+        router.push('/Register')
+    }
+
+    const onClickLogout = () => {
+        setIsHover(false)
+    }
+
+    const onClickProfile = () => {
+        setIsHover(false)
+        props.setIsModalOpen(true)
     }
 
     function renderHoverUser() {
@@ -27,10 +42,10 @@ function NavLogin (props) {
             return (
                 <HoverUser>
                     <div>
-                        <span onClick={() => props.setIsModalOpen(true)}>Perfil</span>
+                        <span onClick={ onClickProfile }>Perfil</span>
                     </div>
                     <div>
-                        <span onClick={ logout }>Logout</span>
+                        <span onClick={ onClickLogout }>Logout</span>
                     </div>
                 </HoverUser>
             )
@@ -39,8 +54,8 @@ function NavLogin (props) {
 
     if (true) {
         return (
-            <Content 
-                onMouseEnter={ () => setIsHover(true) } 
+            <Content
+                onMouseEnter={ () => setIsHover(true) }
                 onMouseOver={ () => setMouseStatus(true) }
                 onMouseOut={() => setMouseStatus(false) }
                 {...props}
@@ -54,8 +69,8 @@ function NavLogin (props) {
     return (
         <Content {...props}>
             <Icon src={User}/>
-            <span id="login" onClick={() => router.push('/Login')}>Login</span>
-            <span id="register" onClick={() => router.push('/Register')}>Cadastrar-se</span>
+            <span id="login" onClick={onClickLogin}>Login</span>
+            <span id="register" onClick={onClickRegister}>Cadastrar-se</span>
         </Content>
     )
 }

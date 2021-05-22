@@ -12,7 +12,7 @@ import Deslike from '../../Assets/Deslike.svg'
 
 import { DescriptionBase, CompanieLogo, Buttons, ComentContainer, PieContainer, Content, ContentContainer, ApprovalContainer, ApprovalIcons } from './style'
 
-import { pieData, barData } from './GraphicMockData'
+import { pieData, barData } from '../../Helpers/MockDataJSON/GraphicMockData'
 import { useRouter } from 'next/router'
 
 function Description (props) {

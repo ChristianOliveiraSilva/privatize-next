@@ -97,9 +97,9 @@ export const Replys = styled.div`
         width: 100%;
         margin-top: 25px;
         margin-left: 50px;
-        width: calc(100% - 50px);        
-    }    
-    
+        width: calc(100% - 50px);
+    }
+
 `
 
 export const TextArea = styled.textarea`
@@ -111,7 +111,7 @@ export const TextArea = styled.textarea`
 `
 
 export const Options = styled.div`
-    margin-top: 10px;
+    margin-top: 20px;
     display: flex;
     flex-direction: row;
 `
@@ -136,6 +136,7 @@ export const CommentContainer = styled.div`
     cursor: pointer;
 
     :hover {
-        background-color: #FBFBFB;
+        border: solid 0.5px #FFDD9E;
+        transform: scale(1.05);
     }
 `

@@ -79,8 +79,8 @@ export const ComentContainer = styled.div`
   display: flex;
   padding-left: 5%;
   padding-right: 5%;
-  flex-direction: row; 
-  align-items: space-between; 
+  flex-direction: row;
+  align-items: space-between;
   flex-wrap: wrap-reverse;
   justify-content: space-around;
 
@@ -126,6 +126,9 @@ export const ContentContainer = styled.div`
 export const ApprovalContainer = styled.div`
   display: flex;
   flex-direction: row;
+  margin-top: 50px;
+  border-bottom: solid 1px lightgray;
+  padding-bottom: 50px;
   justify-content: space-between;
   width: 100%;
 `
