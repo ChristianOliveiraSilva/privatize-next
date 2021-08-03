@@ -1,5 +1,5 @@
 import React from 'react'
-import { TagBase, TagContainer } from './style'
+import { TagBase, TagWrapper } from './style'
 import PropTypes from 'prop-types'
 import tagMapper from './Helpers/tagMapper'
 
@@ -9,9 +9,9 @@ export function Tag ({ data }) {
             data.map((tagtype, i) => {
                 const tag = tagMapper[tagtype];
                 return (
-                    <TagContainer key={i} color={tag.color}>
+                    <TagWrapper key={i} color={tag.color}>
                         <span >{tag.text}</span>
-                    </TagContainer>
+                    </TagWrapper>
                 )
             })
         )

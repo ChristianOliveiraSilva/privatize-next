@@ -75,7 +75,11 @@ export const Buttons = styled.div`
 
 `
 
-export const ComentContainer = styled.div`
+export const CommentContainer = styled.div`
+  
+`
+
+export const CommentChartContainer = styled.div`
   display: flex;
   padding-left: 5%;
   padding-right: 5%;
@@ -89,6 +93,7 @@ export const ComentContainer = styled.div`
       padding-right: 10%;
     }
 `
+
 
 export const PieContainer = styled.div`
 

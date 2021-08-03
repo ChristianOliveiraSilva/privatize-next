@@ -8,8 +8,8 @@ export const TagBase = styled.div`
 
     div {
         margin-left: 10px;
-    
-        :first-child { 
+
+        :first-child {
             margin-left: 0;
         }
     }
@@ -21,10 +21,10 @@ export const TagBase = styled.div`
         -ms-user-select: none; /* Internet Explorer/Edge */
             user-select: none; /* Non-prefixed version, currently
                                   supported by Chrome and Opera */
-            
+
 `
 
-export const TagContainer = styled.div`
+export const TagWrapper = styled.div`
     background-color: ${({ color }) => color};
     border-radius: 20px;
     padding-left: 5px;

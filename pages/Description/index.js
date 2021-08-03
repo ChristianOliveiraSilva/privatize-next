@@ -3,14 +3,14 @@ import Navbar from '../../Components/Navbar'
 import Proptypes from 'prop-types'
 import Graphic from '../../Components/Graphic'
 import Button from '../../Components/Button'
-import Comentary from '../../Components/Comentary'
-import Footer from '../../Interfaces/Footer'
+import Footer from '../../Components/Footer'
 import Pie from '../../Components/Pie'
 import InfoBox from '../../Components/InfoBox'
 import Like from '../../Assets/Like.svg'
 import Deslike from '../../Assets/Deslike.svg'
+import Comment from '../../Components/Comment'
 
-import { DescriptionBase, CompanieLogo, Buttons, ComentContainer, PieContainer, Content, ContentContainer, ApprovalContainer, ApprovalIcons } from './style'
+import { DescriptionBase, CompanieLogo, Buttons, CommentContainer, PieContainer, Content, ContentContainer, ApprovalContainer, ApprovalIcons, CommentChartContainer } from './style'
 
 import { pieData, barData } from '../../Helpers/MockDataJSON/GraphicMockData'
 import { useRouter } from 'next/router'
@@ -70,12 +70,14 @@ function Description (props) {
                             </Buttons>
                         </ApprovalContainer>
                         <div style={{ paddingTop: '50px', paddingBottom: '50px' }}>
-                            <ComentContainer>
-                                <Comentary />
+                            <CommentChartContainer>
+                                <CommentContainer>
+                                    <Comment/>
+                                </CommentContainer>
                                 <PieContainer>
                                     <Pie data={pieData} />
                                 </PieContainer>
-                            </ComentContainer>
+                            </CommentChartContainer>
                         </div>
                     </Content>
                 </ContentContainer>

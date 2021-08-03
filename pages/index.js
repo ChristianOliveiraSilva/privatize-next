@@ -3,7 +3,7 @@ import Companies from '../Components/Companies'
 import Filters from '../Components/Filters'
 import Presentation from '../Components/Presentation'
 import Navbar from '../Components/Navbar'
-import Footer from '../Interfaces/Footer'
+import Footer from '../Components/Footer'
 import { useRouter } from 'next/router'
 
 function Home () {
