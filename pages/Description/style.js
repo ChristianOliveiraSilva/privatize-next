@@ -49,49 +49,31 @@ export const CompanieLogo = styled.div`
     }
 `
 
-export const Buttons = styled.div`
-    display: flex;
-    align-items: center;
-    float: right;
-    flex-wrap: wrap;
-
-    span {
-      margin-right: 20px;
-      font-size: 20px;
-    }
-
-    @media (max-width: 650px) {
-      left: 50%;
-      width: 100%;
-      justify-content: center;
-
-      #question {
-        display: flex;
-        justify-content: center;
-        width: 100%;
-      }
-
-    }
-
-`
-
 export const CommentContainer = styled.div`
-  
+  flex: 0.8;
 `
 
 export const CommentChartContainer = styled.div`
   display: flex;
   padding-left: 5%;
   padding-right: 5%;
+  padding-top: 50px;
+  padding-bottom: 50px;
   flex-direction: row;
   align-items: space-between;
   flex-wrap: wrap-reverse;
   justify-content: space-around;
-
     @media (max-width: 1350px) {
       padding-left: 10%;
       padding-right: 10%;
     }
+
+    
+`
+
+export const GraphicWrapper = styled.div`
+  width: 100%;
+  height: 300px;
 `
 
 
@@ -127,48 +109,5 @@ export const ContentContainer = styled.div`
   display: flex;
   flex-direction: row-reverse;
 `
-
-export const ApprovalContainer = styled.div`
-  display: flex;
-  flex-direction: row;
-  margin-top: 50px;
-  border-bottom: solid 1px lightgray;
-  padding-bottom: 50px;
-  justify-content: space-between;
-  width: 100%;
-`
-
-export const ApprovalIcons = styled.div`
-  display: grid;
-  grid-auto-flow: column;
-  grid-column-gap: 50px;
-  margin-left: 50px;
-  align-items: center;
-
-  span {
-    margin-right: 20px;
-    font-size: 20px;
-  }
-
-  img {
-    width: 50px;
-    height: 50px;
-    cursor: pointer;
-    transition: 0.3s;
-
-    :hover {
-      transform: scale(1.1);
-    }
-  }
-
-  img :nth-child(2) {
-    transform: rotate(180deg);
-    :hover {
-      transform: scale(1.1) rotate(180deg);
-    }
-  }
-
-`
-
 
 export default DescriptionBase;

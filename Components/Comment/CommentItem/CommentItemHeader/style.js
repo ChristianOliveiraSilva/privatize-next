@@ -13,3 +13,9 @@ export const UserName = styled.span `
 export const InsertData = styled.span `
     
 `
+
+export const RightContainer = styled.div `
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+`

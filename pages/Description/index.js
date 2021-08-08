@@ -10,7 +10,7 @@ import Like from '../../Assets/Like.svg'
 import Deslike from '../../Assets/Deslike.svg'
 import Comment from '../../Components/Comment'
 
-import { DescriptionBase, CompanieLogo, Buttons, CommentContainer, PieContainer, Content, ContentContainer, ApprovalContainer, ApprovalIcons, CommentChartContainer } from './style'
+import { DescriptionBase, CompanieLogo, Buttons, CommentContainer, PieContainer, Content, ContentContainer, CommentChartContainer, GraphicWrapper } from './style'
 
 import { pieData, barData } from '../../Helpers/MockDataJSON/GraphicMockData'
 import { useRouter } from 'next/router'
@@ -34,51 +34,23 @@ function Description (props) {
                         <CompanieLogo>
                             <img src='https://upload.wikimedia.org/wikipedia/commons/thumb/2/2b/Petrobras.svg/1280px-Petrobras.svg.png'/>
                         </CompanieLogo>
-                        <div id='bar' style={{ width: '100%', height: '300px' }}>
-                            <Graphic type='bar' index={'Mês'} keys={[ 'Aprovam', 'Reprovam' ]} data={barData}  keys={['Assinaturas']} />
-                        </div>
-                        <ApprovalContainer>
-                            <ApprovalIcons>
-                                <span>Curte a empresa?</span>
-                                <img src={Like}/>
-                                <img src={Deslike}/>
-                            </ApprovalIcons>
-                            <Buttons>
-                                <div id='question'>
-                                    <span>Deveria ser privatizado?</span>
-                                </div>
-                                <Button
-                                    style={{ marginRight: '20px' }}
-                                    onClick={() => setApprovalRating(prev => prev + 1)}
-                                    width='200px'
-                                    height='50px'
-                                    text='Sim'
-                                    hoverBackgroundColor='#CACACA'
-                                    hoverColor='white'
-                                    backgroundColor='#008542'
-                                    rounded />
-                                <Button
-                                    style={{ marginRight: '20px' }}
-                                    onClick={() => setDisapprovalRating(prev => prev + 1)}
-                                    width='200px'
-                                    height='50px'
-                                    text='Não'
-                                    hoverBackgroundColor='#CACACA'
-                                    hoverColor='white'
-                                    backgroundColor='red'
-                                    rounded />
-                            </Buttons>
-                        </ApprovalContainer>
-                        <div style={{ paddingTop: '50px', paddingBottom: '50px' }}>
-                            <CommentChartContainer>
-                                <CommentContainer>
-                                    <Comment/>
-                                </CommentContainer>
-                                <PieContainer>
-                                    <Pie data={pieData} />
-                                </PieContainer>
-                            </CommentChartContainer>
-                        </div>
+                        <GraphicWrapper id='bar'>
+                            <Graphic 
+                                type='bar' 
+                                index={'Mês'} 
+                                keys={[ 'Aprovam', 'Reprovam' ]} 
+                                data={barData}  
+                                keys={['Assinaturas']} 
+                            />
+                        </GraphicWrapper>
+                        <CommentChartContainer>
+                            <CommentContainer>
+                                <Comment/>
+                            </CommentContainer>
+                            <PieContainer>
+                                <Pie data={pieData} />
+                            </PieContainer>
+                        </CommentChartContainer>
                     </Content>
                 </ContentContainer>
             <Footer />

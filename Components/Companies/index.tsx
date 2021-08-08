@@ -31,11 +31,11 @@ const Companies: React.FC<CompaniesProps> = (props) => {
         }
 
         return (
-            <>
+            <React.Fragment>
                 {companies.map((e) => (
                     <Card animated id={e.id} animationDelay={e.animationDelay} key={e.id} router={props.router} />
                 ))}
-            </>
+            </React.Fragment>
         )
     }
 

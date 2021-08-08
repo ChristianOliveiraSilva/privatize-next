@@ -1,14 +1,16 @@
 import React from 'react'
 import CommentItemTags from '../CommentItemTags'
 
-import { CommentItemHeaderWrapper, UserName, InsertData } from './style'
+import { CommentItemHeaderWrapper, UserName, InsertData, RightContainer } from './style'
 
 function CommentItemHeader() {
     return (
         <CommentItemHeaderWrapper>
             <UserName>User name</UserName>
-            <InsertData>00/00/0000</InsertData>
-            <CommentItemTags/>
+            <RightContainer>
+                <CommentItemTags/>
+                <InsertData>00/00/0000</InsertData>
+            </RightContainer>
         </CommentItemHeaderWrapper>
     )
 }

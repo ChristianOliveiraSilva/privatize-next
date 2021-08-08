@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useRef, useCallback, memo } from 'react'
 
 import Button from '../Button'
 import CommentArea from './CommentArea'
@@ -8,45 +8,114 @@ import { CommentWrapper } from './style'
 
 import CommentHelpers from './Helpers/commentHelpers'
 
+const buttonStyle = {
+    width: '200px',
+    height: '50px',
+    text: 'Comentar',
+    hoverBackgroundColor: '#CACACA',
+    hoverColor: 'white',
+    backgroundColor: 'lightgray',
+    rounded: true
+}
+
 function Comment() {
 
-    const [comments, setComments] = useState([])
-    const [commentText, setCommentText] = useState('')
+    let [comments, setComments] = useState([{
+        id: 'teste',
+        user: 'user',
+        inserData: '00/00/0000',
+        text: 'teste',
+        tags: [],
+        repplys: []
+    },
+    {
+        id: 'teste2',
+        user: 'user',
+        inserData: '00/00/0000',
+        text: 'teste',
+        tags: [],
+        repplys: []
+    }])
+
+    let [repplyInfo, setRepplyInfo] = useState({isReplying: false, ref: null })
+
+    const commentItems = useRef([])
+    const commentTextArea = useRef()
 
     const addNewComment = () => {
+        const text = commentTextArea.current.value
 
-        if (!CommentHelpers.validateCommentText(commentText)){
+        if (!CommentHelpers.validateCommentText(text)){
             return
         }
 
-        setComments(prev => [...prev, { 
+        setComments(prev => [{
+            id: prev.length + 1,
             user: 'user',
             inserData: '00/00/0000',
-            text: commentText,
+            text: text,
             tags: [],
-            repply: false
-        }])
+            repplys: []
+        }, ...prev])
+    }
+    
+    const addNewRepply = (commentId, text) => {
+        if (!CommentHelpers.validateCommentText(text)){
+            return
+        }
+
+        for (var i = 0; i < comments.length; i++) {
+            if (comments[i].id === commentId) {
+                comments[i].repplys.unshift({
+                    id: commentId + 2,
+                    user: 'user',
+                    inserData: '00/00/0000',
+                    text: text,
+                })              
+            }
+        }
+
+        setComments([...comments])
     }
 
-    function CommentItems() {
+    const showRepplyHandler = useCallback((newRef) => {
+
+        const prevCommentId = repplyInfo.ref;
+        const newCommentId = newRef.props.data.id
+
+        if (repplyInfo.isReplying && prevCommentId !== newCommentId) {
+            commentItems.current[repplyInfo.ref].hideRepplyHandler()
+        }
+
+        repplyInfo.ref = newRef.props.data.id
+        repplyInfo.isReplying = true
+
+        setRepplyInfo(repplyInfo)
+
+        newRef.showRepplyHandler()
+    }, [])
+
+    const CommentItems = () =>  {
         return (
             <React.Fragment>
-                {comments.map((e) => <CommentItem data={e}/>)}
+                {comments.map((e, i) => 
+                    <CommentItem 
+                        addNewRepply={ addNewRepply } 
+                        onClick={() => showRepplyHandler(commentItems.current[e.id])} 
+                        key={i} 
+                        ref={el => commentItems.current[e.id] = el} 
+                        data={e}
+                    />
+                )}
             </React.Fragment>
         )
     }
 
     return (
         <CommentWrapper>
-            <CommentArea value={commentText} setValue={setCommentText}/>
+            <CommentArea innerRef={commentTextArea}/>
             <Button
-                width='200px'
-                height='50px'
-                text='Comentar'
-                hoverBackgroundColor='#CACACA'
-                hoverColor='white'
-                backgroundColor='lightgray'
-                rounded
+                {...buttonStyle}
                 onClick={addNewComment}
             />
             <CommentItems/>

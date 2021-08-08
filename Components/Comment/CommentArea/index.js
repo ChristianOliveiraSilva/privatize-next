@@ -1,14 +1,11 @@
-import React, { useState } from 'react'
+import React, { useState, useCallback } from 'react'
 import { CommentText } from './style'
 
 function CommentArea(props) {
-
-    function handleChange (e) {
-        props.setValue(e.target.value)
-    }
+    const [value, setValue] = useState()
 
     return (
-        <CommentText value={props.value} onChange={(e) => handleChange(e)}>{props.children}</CommentText>
+        <CommentText ref={props.innerRef} value={value} onChange={(e) => setValue(e.target.value)}>{props.children}</CommentText>
     )
 }
 

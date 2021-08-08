@@ -1,33 +1,87 @@
 import React from 'react'
-import Repply from '../Repply'
+import ProfileIcon from '../ProfileIcon'
+import RepplyHandler from '../RepplyHandler'
 import CommentItemHeader from './CommentItemHeader'
-import { CommentItemWrapper, CommentItemText } from './style' 
+import { CommentItemWrapper, CommentItemText, CommentBody } from './style' 
+import RepplyItem from '../RepplyItem'
 
-function CommentItem(props) {
+class CommentItem extends React.Component {
+    constructor(props){
+        super(props)
 
-    function getRepply() {
-        if (props.repply){
+        this.state = {
+            repplyStatus: false
+        }
+
+        this.handleClick = this.handleClick.bind(this)
+        this.getRepplys = this.getRepplys.bind(this)
+        this.getRepplyHandler = this.getRepplyHandler.bind(this)
+        this.showRepplyHandler = this.showRepplyHandler.bind(this)
+        this.hideRepplyHandler = this.hideRepplyHandler.bind(this)
+    }
+
+    getRepplyHandler() {
+        if (this.state.repplyStatus){
             return (
-                <Repply/>
+                <RepplyHandler hideRepplyHandler={ this.hideRepplyHandler } commentId={this.props.data.id} addNewRepply={this.props.addNewRepply}/>
             )
         }
 
         return null
     }
 
-    function handleClick() {
-        
+    getRepplys() {
+        const repplys = this.props.data?.repplys
+
+        if (repplys) {
+            return (
+                <React.Fragment>
+                    {this.props.data.repplys.map((e, i) =>  
+                        <RepplyItem 
+                            key={i} 
+                            data={e}
+                        />
+                    )}
+                </React.Fragment>
+            )
+        }
+
+        return null
     }
 
-    return (
-        <CommentItemWrapper onClick={() => handleClick()} >
-            <CommentItemHeader/>
-            <CommentItemText>{props.data.text}</CommentItemText>
-            {getRepply()}
-        </CommentItemWrapper>
-    )
+    handleClick () {
+        const { onClick } = this.props
+        
+        if (onClick) {
+            onClick()
+        }
+    }
 
+    showRepplyHandler() {
+        this.setState({repplyStatus: true})
+    }
 
+    hideRepplyHandler() {
+        this.setState({repplyStatus: false})
+    }
+
+    render(){
+        const { text } = this.props.data
+        
+        return (
+            <React.Fragment>
+                <CommentItemWrapper isRepply={this.props.isRepply} onClick={ this.handleClick } >
+                    <CommentItemHeader/>
+                    <CommentBody>
+                        <ProfileIcon image={'https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500'} />
+                        <CommentItemText>{text}</CommentItemText>
+                    </CommentBody>
+                </CommentItemWrapper>
+                {this.getRepplyHandler()}
+                {this.getRepplys()}
+            </React.Fragment>
+        )
+    }
 }
 
 export default CommentItem
