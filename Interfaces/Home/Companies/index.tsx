@@ -1,6 +1,6 @@
 import React, { Component, ReactElement } from 'react'
 import { Content, Grid } from './style'
-import Card from '../Card'
+import Card from '../../../Components/Card'
 import { NextRouter } from 'next/router'
 
 interface CompaniesProps {

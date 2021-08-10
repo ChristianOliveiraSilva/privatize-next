@@ -2,9 +2,9 @@ import React, { useState, createContext } from 'react'
 import { BaseNavbar } from './style'
 import ModalProfile from './ModalProfile'
 import NavLogin from './NavLogin'
-import Logo from '../Logo'
+import Logo from '../../Components/Logo'
 
-import ModalContext from '../Modal/helpers/modalContext'
+import ModalContext from '../../Components/Modal/helpers/modalContext'
 
 interface NavBarProps {
     router: {
@@ -35,13 +35,18 @@ const Navbar: React.FC<NavBarProps> = (props) => {
         props.router.push('/')
     }
 
+    const onCloseModal = () => {
+        setIsModalOpen(false)
+    }
+
     return (
         <React.Fragment>
             <ModalContext.Provider value={setIsModalOpen}>
                 <ModalProfile
                     modalProps={{
                         isModalOpen: isModalOpen,
-                        modalStyle:{ ... modalStyle },
+                        onClose: onCloseModal,
+                        modalStyle: { ... modalStyle },
                     }}
                 />
             </ModalContext.Provider>

@@ -1,13 +1,16 @@
-import React, { useContext } from 'react'
+import React from 'react'
 import { sizeMapper } from '../helpers/modalMapper'
 import { sizes } from '../../../Helpers/Shared/sharedConstants'
-import { ModalB, Shadow } from './style'
+import { ModalBaseWrapper, Shadow } from './style'
 import { ModalBaseInteface } from '../helpers/interfaces'
-import ModalContext from '../helpers/modalContext'
 
 const ModalBase: React.FC<ModalBaseInteface>  = (props) => {
 
-    const setIsModalOpen = useContext(ModalContext)
+    function onClose() {
+        if (props.onClose) {
+            props.onClose()
+        }
+    }
 
     function getStyle() {
         const { modalStyle, size } = props
@@ -33,10 +36,10 @@ const ModalBase: React.FC<ModalBaseInteface>  = (props) => {
     if (isModalOpen) {
         return (
             <React.Fragment>
-                <Shadow onClick={() => setIsModalOpen(false)} shadow={props.shadow}/>
-                <ModalB style={getStyle()} onClick={props.onClick}>
+                <Shadow onClick={() => onClose()} shadow={props.shadow}/>
+                <ModalBaseWrapper style={getStyle()}>
                     { props.children }
-                </ModalB>
+                </ModalBaseWrapper>
             </React.Fragment>
         )
     }

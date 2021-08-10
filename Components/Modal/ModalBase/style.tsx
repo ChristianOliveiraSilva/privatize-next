@@ -16,7 +16,7 @@ interface ModalBaseProps {
     isOpen: boolean
 }
 
-export const ModalB = styled.div<ModalBaseProps>`
+export const ModalBaseWrapper = styled.div<ModalBaseProps>`
     position: fixed;
     top: 50%;
     left: 50%;

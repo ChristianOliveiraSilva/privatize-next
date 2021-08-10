@@ -1,10 +1,10 @@
 import React from 'react'
 import { FiltersBase, InpStyle, DropStyle, FlexFilters, SelectableButtons } from './style'
-import Flex from '../../Global/Style'
-import Dropdown from '../Dropdown'
-import Checkbox from '../Checkbox'
-import Input from '../Input'
-import Button from '../Button'
+import Flex from '../../../Global/Style'
+import Dropdown from '../../../Components/Dropdown'
+import Checkbox from '../../../Components/Checkbox'
+import Input from '../../../Components/Input'
+import Button from '../../../Components/Button'
 
 import { filterCompanies } from './helpers/filterHelpers'
 

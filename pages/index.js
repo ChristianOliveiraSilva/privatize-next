@@ -1,9 +1,9 @@
 import React from 'react'
-import Companies from '../Components/Companies'
-import Filters from '../Components/Filters'
-import Presentation from '../Components/Presentation'
-import Navbar from '../Components/Navbar'
-import Footer from '../Components/Footer'
+import Companies from '../Interfaces/Home/Companies'
+import Filters from '../Interfaces/Home/Filters'
+import Presentation from '../Interfaces/Home/Presentation'
+import Navbar from '../Interfaces/Navbar'
+import Footer from '../Interfaces/Footer'
 import { useRouter } from 'next/router'
 
 function Home () {

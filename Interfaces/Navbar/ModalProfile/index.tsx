@@ -1,14 +1,14 @@
 import React, { useContext } from 'react'
 
-import EditableText from '../../EditableText'
+import EditableText from '../../../Components/EditableText'
 import UserImage from '../../../Assets/User.svg'
-import Modal from '../../Modal'
+import Modal from '../../../Components/Modal'
 
 import { InformationContainer, Editables, ImageContainer, ProfileImage, ButtonContainer} from './style'
-import Button from '../../Button'
+import Button from '../../../Components/Button'
 
-import { ModalInteface } from '../../Modal/helpers/interfaces'
-import ModalContext from '../../Modal/helpers/modalContext'
+import { ModalInteface } from '../../../Components/Modal/helpers/interfaces'
+import ModalContext from '../../../Components/Modal/helpers/modalContext'
 
 const headerText = 'Perfil'
 

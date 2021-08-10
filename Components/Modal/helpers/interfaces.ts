@@ -1,7 +1,7 @@
 import { StyleHTMLAttributes } from 'react'
 
 export interface ModalBaseInteface {
-    onClick?: Function,
+    onClose?: Function,
     rounded?: boolean,
     children: any | undefined,
     shadow?: boolean,

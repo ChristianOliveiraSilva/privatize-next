@@ -3,7 +3,7 @@ import styled from 'styled-components'
 export const Header = styled.div`
     position: relative;
     padding: 20px;
-
+    z-index: 5;
 
     div {
         position: absolute;

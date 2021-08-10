@@ -1,5 +1,5 @@
 import React from 'react'
-import Navbar from '../../Components/Navbar'
+import Navbar from '../../Interfaces/Navbar'
 import { Presentation, Showcase, ArticleBase, ArticleContent, ArticleHeader } from './style'
 import articles from '../../Helpers/ArticleHelpers/articleConstants.js'
 

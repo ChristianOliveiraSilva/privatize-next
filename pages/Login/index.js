@@ -5,11 +5,9 @@ import Input from '../../Components/Input'
 import nameIcon from '../../Assets/Name.svg'
 import passIcon from '../../Assets/Pass.svg'
 import Button from '../../Components/Button'
-import PropTypes from 'prop-types'
 import loading from '../../Assets/loadinglogin.svg'
 import Logo from '../../Components/Logo'
 import { useRouter } from 'next/router'
-
 
 import { GoogleLogin } from 'react-google-login'
 import FacebookLogin from 'react-facebook-login'

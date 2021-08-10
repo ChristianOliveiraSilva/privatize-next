@@ -1,6 +1,6 @@
 import React from 'react'
-import Button from '../Button'
-import { Flex } from '../../Global/Style'
+import Button from '../../../Components/Button'
+import { Flex } from '../../../Global/Style'
 import { Content, Title, Subtitle, Container } from './style'
 import PropTypes from 'prop-types'
 

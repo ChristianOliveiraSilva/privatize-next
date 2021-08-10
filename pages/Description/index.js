@@ -1,16 +1,14 @@
 import React, { useState } from 'react'
-import Navbar from '../../Components/Navbar'
+import Navbar from '../../Interfaces/Navbar'
 import Proptypes from 'prop-types'
 import Graphic from '../../Components/Graphic'
-import Button from '../../Components/Button'
-import Footer from '../../Components/Footer'
+import Footer from '../../Interfaces/Footer'
 import Pie from '../../Components/Pie'
 import InfoBox from '../../Components/InfoBox'
-import Like from '../../Assets/Like.svg'
-import Deslike from '../../Assets/Deslike.svg'
 import Comment from '../../Components/Comment'
+import DescriptionModal from '../../Interfaces/Description/DescriptionModal'
 
-import { DescriptionBase, CompanieLogo, Buttons, CommentContainer, PieContainer, Content, ContentContainer, CommentChartContainer, GraphicWrapper } from './style'
+import { DescriptionBase, CompanieLogo, CommentContainer, PieContainer, Content, ContentContainer, CommentChartContainer, GraphicWrapper } from './style'
 
 import { pieData, barData } from '../../Helpers/MockDataJSON/GraphicMockData'
 import { useRouter } from 'next/router'
@@ -26,6 +24,7 @@ function Description (props) {
     return (
         <DescriptionBase>
             <Navbar router={router} />
+                <DescriptionModal/>
                 <ContentContainer>
                     <InfoBox onOpen={() => setIsContentVisible(false)} onClose={() => setIsContentVisible(true)}/>
                     <Content isContentVisible={isContentVisible} id="descriptionContent">
