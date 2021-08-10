@@ -1,8 +1,9 @@
-import React, { useState, useRef, useCallback, memo } from 'react'
+import React, { useState, useRef, useCallback } from 'react'
 
 import Button from '../Button'
 import CommentArea from './CommentArea'
 import CommentItem from './CommentItem'
+import CommentTagHandler from './CommentTagHandler'
 
 import { CommentWrapper } from './style'
 
@@ -14,7 +15,7 @@ const buttonStyle = {
     text: 'Comentar',
     hoverBackgroundColor: '#CACACA',
     hoverColor: 'white',
-    backgroundColor: 'lightgray',
+    backgroundColor: 'gray',
     rounded: true
 }
 
@@ -39,10 +40,12 @@ function Comment() {
 
     let [repplyInfo, setRepplyInfo] = useState({isReplying: false, ref: null })
 
+    const [checkedTags, setCheckedTags] = useState([])
+
     const commentItems = useRef([])
     const commentTextArea = useRef()
 
-    const addNewComment = () => {
+    const addNewComment = useCallback(() => {
         const text = commentTextArea.current.value
 
         if (!CommentHelpers.validateCommentText(text)){
@@ -54,33 +57,35 @@ function Comment() {
             user: 'user',
             inserData: '00/00/0000',
             text: text,
-            tags: [],
+            tags: [...checkedTags],
             repplys: []
         }, ...prev])
-    }
+    },[commentTextArea])
     
-    const addNewRepply = (commentId, text) => {
+    const addNewRepply = useCallback((commentId, text) => {
         if (!CommentHelpers.validateCommentText(text)){
             return
         }
 
-        for (var i = 0; i < comments.length; i++) {
-            if (comments[i].id === commentId) {
-                comments[i].repplys.unshift({
-                    id: commentId + 2,
-                    user: 'user',
-                    inserData: '00/00/0000',
-                    text: text,
-                })              
-            }
-        }
+        setComments(prevComments => {
+            let newComments = [...prevComments]
 
-        setComments([...comments])
-    }
+            for (var i = 0; i < newComments.length; i++) {
+                if (newComments[i].id === commentId) {
+                    newComments[i].repplys.unshift({
+                        id: commentId + 2,
+                        user: 'user',
+                        inserData: '00/00/0000',
+                        text: text,
+                    })              
+                }
+            }
+            return newComments
+        })
+    }, [])
 
     const showRepplyHandler = useCallback((newRef) => {
-
-        const prevCommentId = repplyInfo.ref;
+        const prevCommentId = repplyInfo.ref
         const newCommentId = newRef.props.data.id
 
         if (repplyInfo.isReplying && prevCommentId !== newCommentId) {
@@ -93,16 +98,17 @@ function Comment() {
         setRepplyInfo(repplyInfo)
 
         newRef.showRepplyHandler()
-    }, [])
+    }, [repplyInfo, commentItems])
 
     const CommentItems = () =>  {
         return (
             <React.Fragment>
-                {comments.map((e, i) => 
+                {comments.map((e) => 
                     <CommentItem 
-                        addNewRepply={ addNewRepply } 
+                        addNewRepply={ addNewRepply }
+                        checkedTags={ checkedTags }
                         onClick={() => showRepplyHandler(commentItems.current[e.id])} 
-                        key={i} 
+                        key={e.id} 
                         ref={el => commentItems.current[e.id] = el} 
                         data={e}
                     />
@@ -113,12 +119,10 @@ function Comment() {
 
     return (
         <CommentWrapper>
+            <CommentTagHandler checkedTags={checkedTags} setCheckedTags={setCheckedTags}/>
             <CommentArea innerRef={commentTextArea}/>
-            <Button
-                {...buttonStyle}
-                onClick={addNewComment}
-            />
-            <CommentItems/>
+            <Button {...buttonStyle} onClick={addNewComment}/>
+            {CommentItems()}
         </CommentWrapper>
     )
 }

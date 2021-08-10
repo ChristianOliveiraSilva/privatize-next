@@ -66,12 +66,12 @@ class CommentItem extends React.Component {
     }
 
     render(){
-        const { text } = this.props.data
+        const { text, tags } = this.props.data
         
         return (
             <React.Fragment>
                 <CommentItemWrapper isRepply={this.props.isRepply} onClick={ this.handleClick } >
-                    <CommentItemHeader/>
+                    <CommentItemHeader tags={tags}/>
                     <CommentBody>
                         <ProfileIcon image={'https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500'} />
                         <CommentItemText>{text}</CommentItemText>

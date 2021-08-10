@@ -4,10 +4,13 @@ import PropTypes from 'prop-types'
 import tagMapper from './Helpers/tagMapper'
 
 export function Tag ({ data }) {
+
     function getTags () {
         return (
             data.map((tagtype, i) => {
+                debugger;
                 const tag = tagMapper[tagtype];
+
                 return (
                     <TagWrapper key={i} color={tag.color}>
                         <span >{tag.text}</span>

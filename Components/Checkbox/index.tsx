@@ -3,7 +3,7 @@ import {CheckboxBase, Input} from './style'
 
 interface CheckboxProps {
     text: string,
-    addValue: Function,
+    onChange: Function,
     margin: string,
     value: string,
     textStyle: StyleHTMLAttributes<Object>
@@ -13,20 +13,10 @@ const Checkbox: React.FC<CheckboxProps>  = (props) => {
     const [checked, setChecked] = useState(false)
 
     const handleChange = () => {
-        const { addValue } = props
-        if (addValue && !checked) {
-            addValue((prev : Array<string>) => [...prev, props.value])
-        }
-        if (addValue && checked) {
-            addValue((prev : Array<string>) => {
-                const newArray = []
-                for (let i = 0; i < prev.length; i++) {
-                    if (prev[i] !== props.value) {
-                        newArray.push(prev[i])
-                    }
-                }
-                return newArray
-            })
+        const { onChange } = props
+
+        if (onChange) {
+            onChange()
         }
 
         setChecked(!checked)

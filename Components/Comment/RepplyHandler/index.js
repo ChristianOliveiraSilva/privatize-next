@@ -29,8 +29,8 @@ function RepplyHandler(props) {
         <RepplyHandlerWrapper>
             <CommentArea innerRef={commentTextArea} />
             <RepplyButtons>
-                <Button {...sharedButtonStyle} onClick={ addNewRepply } text='Enviar' backgroundColor='lightgray'/>
-                <Button {...sharedButtonStyle} onClick={ cancelHandler } text='cancelar' backgroundColor='red' />
+                <Button {...sharedButtonStyle} onClick={ addNewRepply } text='Enviar' backgroundColor='gray'/>
+                <Button {...sharedButtonStyle} onClick={ cancelHandler } text='cancelar' backgroundColor='lightgray' />
             </RepplyButtons>
         </RepplyHandlerWrapper>
     )

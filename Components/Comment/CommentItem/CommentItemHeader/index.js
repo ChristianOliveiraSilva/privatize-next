@@ -1,16 +1,19 @@
 import React from 'react'
-import CommentItemTags from '../CommentItemTags'
+import Tag from '../../../Tag'
 
 import { CommentItemHeaderWrapper, UserName, InsertData, RightContainer } from './style'
 
-function CommentItemHeader() {
+function CommentItemHeader(props) {
+
+    const { tags } = props
+
     return (
         <CommentItemHeaderWrapper>
             <UserName>User name</UserName>
             <RightContainer>
-                <CommentItemTags/>
-                <InsertData>00/00/0000</InsertData>
+                <Tag data={tags} />
             </RightContainer>
+            <InsertData>00/00/0000</InsertData>
         </CommentItemHeaderWrapper>
     )
 }
