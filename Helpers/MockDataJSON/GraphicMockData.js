@@ -11,6 +11,17 @@ export const pieData = [
     }
 ]
 
+export const reason = [
+    "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Morbi tincidunt ornare massa eget egestas purus viverra. Fusce ut placerat orci nulla.",
+    "Nisi quis eleifend quam adipiscing vitae. Aenean pharetra magna ac placerat vestibulum lectus mauris ultrices eros. ",
+    "Magnis dis parturient montes nascetur. Maecenas accumsan lacus vel facilisis volutpat est velit egestas dui.",
+    "Rutrum quisque non tellus orci ac auctor augue mauris. Quam lacus suspendisse faucibus interdum posuere. Pretium fusce id velit ut tortor pretium viverra.",
+    "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Morbi tincidunt ornare massa eget egestas purus viverra. Fusce ut placerat orci nulla.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Morbi tincidunt ornare massa eget egestas purus viverra. Fusce ut placerat orci nulla.",
+    "Teste",
+    "Teste2",
+    "Teste3"
+]
+
 export const barData = [
     {
         Mês: 'Mês 1',

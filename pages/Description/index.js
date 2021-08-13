@@ -7,10 +7,11 @@ import Pie from '../../Components/Pie'
 import InfoBox from '../../Components/InfoBox'
 import Comment from '../../Components/Comment'
 import DescriptionModal from '../../Interfaces/Description/DescriptionModal'
+import ReasonCard from '../../Interfaces/Description/ReasonCard'
 
-import { DescriptionBase, CompanieLogo, CommentContainer, PieContainer, Content, ContentContainer, CommentChartContainer, GraphicWrapper } from './style'
+import { DescriptionBase, CompanieLogo, CommentContainer, PieContainer, Content, ContentContainer, CommentChartContainer, GraphicWrapper, ReasonContainer } from './style'
 
-import { pieData, barData } from '../../Helpers/MockDataJSON/GraphicMockData'
+import { pieData, barData, reason } from '../../Helpers/MockDataJSON/GraphicMockData'
 import { useRouter } from 'next/router'
 
 function Description (props) {
@@ -46,9 +47,17 @@ function Description (props) {
                             <CommentContainer>
                                 <Comment/>
                             </CommentContainer>
-                            <PieContainer>
+                            <div>
+                            <h1>Motivos</h1>
+                            <ReasonContainer>
+                                {reason.map((e) => 
+                                    <ReasonCard text={e}/>
+                                )}
+                            </ReasonContainer>
+                            </div>
+                            {/* <PieContainer>
                                 <Pie data={pieData} />
-                            </PieContainer>
+                            </PieContainer> */}
                         </CommentChartContainer>
                     </Content>
                 </ContentContainer>

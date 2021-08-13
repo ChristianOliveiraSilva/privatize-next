@@ -19,14 +19,6 @@ function Graphic ({ data, keys, index, type }) {
             borderColor={{ from: 'color', modifiers: [ [ 'darker', 1.6 ] ] }}
             axisTop={null}
             axisRight={null}
-            axisBottom={{
-                tickSize: 5,
-                tickPadding: 5,
-                tickRotation: 0,
-                legend: 'country',
-                legendPosition: 'middle',
-                legendOffset: 32
-            }}
             axisLeft={{
                 tickSize: 5,
                 tickPadding: 5,

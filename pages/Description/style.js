@@ -76,6 +76,11 @@ export const GraphicWrapper = styled.div`
   height: 300px;
 `
 
+export const ReasonContainer = styled.div`
+  column-count: 2;
+  column-gap: 10px;
+  max-width: 500px;
+`
 
 export const PieContainer = styled.div`
 

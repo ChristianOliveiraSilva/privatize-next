@@ -19,6 +19,7 @@ function RepplyHandler(props) {
         const text = commentTextArea.current.value
     
         addNewRepply(commentId, text)
+        props.hideRepplyHandler()
     }
 
     const cancelHandler = () => {
